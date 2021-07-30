@@ -1,0 +1,82 @@
+
+.slider {
+    margin: 50px;
+    width: 10%;
+    height: 20%;
+}
+
+.img-box img{
+    cursor:pointer;
+
+}
+
+.img-box:hover{
+/*opacity:0.5;*/
+transform: scale(1.5);
+}
+
+a{
+    border:none;
+    outline:none;
+    background:#888;
+    padding:10px 30px;
+    font-size:20px;
+    color: #ddd;
+    cursor: pointer;
+    margin: 10px auto;
+}
+
+a:hover{
+    background: #111;
+}
+
+.container {
+    display: flex;
+    justify-content: left;
+    }
+    
+    .leagues {
+    height: 100px;
+    width: auto;
+    padding: 3px;
+    cursor: pointer;
+    }
+
+.leagues:hover{
+    background: grey;
+}
+
+button:hover{
+    background: grey;
+}
+.container button{
+    cursor: pointer;  
+    color: red;
+}
+
+button{
+    border:none;
+    outline:none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin: 10px auto;
+    position: 'left';
+}
+
+header{
+    background: red;
+    padding: 10px;
+}
+
+header h1{
+    color: white;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.text {
+    background-color: #04AA6D;
+    color: white;
+    font-size: 16px;
+    padding: 16px 32px;
+}
