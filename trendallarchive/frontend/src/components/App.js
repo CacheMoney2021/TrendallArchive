@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
+import WebRouter from "./WebRouter";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -7,7 +8,7 @@ export default class App extends React.Component {
     }
   
     render() {
-      return <h1>Trendall Archive</h1>;
+      return <div>{<WebRouter />}</div>;
     }
   }
   

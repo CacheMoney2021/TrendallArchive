@@ -10,11 +10,22 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.js?$/,
+        exclude: /node_modules/,
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader?modules'],
+      },
+      {
+        test: /\.svg$/,
+        use: ['@svgr/webpack', 'url-loader'],
       },
     ],
   },
