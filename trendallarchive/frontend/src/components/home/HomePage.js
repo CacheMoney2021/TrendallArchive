@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomeHeader from "./HomeHeader";
+import HomepageHeader from "./HomepageHeader";
 
 export default class HomePage extends React.Component {
     constructor(props) {

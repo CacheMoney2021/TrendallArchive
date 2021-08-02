@@ -19,7 +19,7 @@ export default class WebRouter extends React.Component {
       return (
         <Router>
           <Switch>
-            <Route exact path="/" component={HomePage} />
+            <Route exact path="/home" component={HomePage} />
             <Route path="/about" component={AboutPage} />
             <Route path="/contact" component={ContactPage} />
           </Switch>
