@@ -1,6 +1,6 @@
 
 /*Styled Components for the Header/NavBar of the Trendall Archive*/
-
+//https://styled-components.com/docs
 import styled from 'styled-components';
 
 //The header template at the top of the website and wraps around the logo and the navbar

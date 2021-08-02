@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import WebRouter from "./WebRouter";
-import HomepageHeader from "./home/HomepageHeader";
+import HomepageHeader from "./header/HomepageHeader";
 
 export default class App extends React.Component {
     constructor(props) {
