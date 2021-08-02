@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { render } from "react-dom";
 import WebRouter from "./WebRouter";
-import HomepageHeader from "./header/HomepageHeader";
+import HomepageHeader from "./components/header/HomepageHeader";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -9,11 +9,8 @@ export default class App extends React.Component {
     }
   
     render() {
-      /* WebRouter
-      return <div>{<WebRouter />}</div>;*/
-
-      /*Testing HomeHeader*/
-      return <HomepageHeader/>;
+      /* WebRouter*/
+      return <div>{<WebRouter />}</div>;
     }
   }
   

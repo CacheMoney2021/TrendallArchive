@@ -1,2 +1,2 @@
-import App from "./components/App";
-import WebRouter from "./components/WebRouter";
+import App from "./App";
+import WebRouter from "./WebRouter";

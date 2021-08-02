@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import HomePage from "./header/HomePage"
-import AboutPage from "./AboutPage";
-import ContactPage from "./ContactPage";
+import HomePage from "./pages/HomePage"
 import { 
   BrowserRouter as Router, 
   Switch, 
@@ -19,12 +17,9 @@ export default class WebRouter extends React.Component {
       return (
         <Router>
           <Switch>
-            <Route exact path="/home" component={HomePage} />
-            <Route path="/about" component={AboutPage} />
-            <Route path="/contact" component={ContactPage} />
+            <Route exact path="/" component={HomePage} />
           </Switch>
         </Router>
       );
     }
   }
-  

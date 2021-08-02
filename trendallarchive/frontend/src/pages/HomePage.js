@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomepageHeader from "./HomepageHeader";
+import HomepageHeader from "../components/header/HomepageHeader";
 
 export default class HomePage extends React.Component {
     constructor(props) {
@@ -8,7 +8,7 @@ export default class HomePage extends React.Component {
   
     render() {
       return(
-        <p></p>
+        <HomepageHeader/>
       ); 
     }
   }
