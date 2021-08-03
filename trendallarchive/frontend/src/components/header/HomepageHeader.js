@@ -4,7 +4,7 @@ import {ReactComponent as LaTrobeLogo} from '../images/logo.svg';
 import BookmarkIcon from '../images/bookmarkicon.png';
 import UserIcon from '../images/usericon.png';
 
-//A function to take in the name of an import image and return it as a styled image
+//A function to take in the name of an imported image and return it as a styled image
 function Icon(props){
   return <img src={props.name} width="35px" height="35px"/>; 
 }
@@ -25,7 +25,3 @@ const HomepageHeader = () => {
 }
 
 export default HomepageHeader
-
-//Issues currently faced:
-//Cannot add any other components after <LaTrobeLogo/> or it will disappear
-//This works to load: <img src={BookmarkIcon} width="35px" height="35px"/>; 
