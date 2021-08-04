@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import HomePage from "./pages/HomePage"
+import HomePage from "./pages/HomePage";
 import { 
   BrowserRouter as Router, 
   Switch, 
