@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import HomePage from "./pages/HomePage";
 import ViewVase from "./pages/ViewVase";
+import AdvancedSearch from "./pages/AdvancedSearch";
+
 import { 
   BrowserRouter as Router, 
   Switch, 
@@ -20,6 +22,7 @@ export default class WebRouter extends React.Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/viewvase" component={ViewVase} />
+            <Route exact path="/advanced-search" component={AdvancedSearch} />
           </Switch>
         </Router>
       );
