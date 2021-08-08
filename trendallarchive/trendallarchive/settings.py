@@ -76,13 +76,21 @@ WSGI_APPLICATION = 'trendallarchive.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+#connect django to db
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
-}
-
+     'default': {
+         'ENGINE': 'sql_server.pyodbc',
+         'NAME': 'trendalldb',
+         'USER': 'trenadmin',
+         'PASSWORD': '{Latrobe!}',#not sure if needs the curly brackets or not
+         'HOST': 'mysqlserver9879.database.windows.net',
+         'PORT': '1433',
+         'OPTIONS': {
+             'driver': 'ODBC Driver 13 for SQL Server',
+             'MARS_Connection': 'True',
+         }
+     }
+ }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

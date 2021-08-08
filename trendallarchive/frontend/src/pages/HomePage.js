@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import HomepageHeader from "../components/header/HomepageHeader";
-import BannerVaseImage from '../components/images/basicsearchimage.png';
 import styled from 'styled-components';
-import GoldBtn from "../components/buttons/GoldBtn";
+import HomepageHeader from "../components/header/HomepageHeader";
 import SearchWithDropdown from "../components/searchbars/SearchWithDropdown";
-
+import Footer from "../components/page_elements/Footer";
+import BannerVaseImage from '../components/images/basicsearchimage.png';
+import GoldBtn from "../components/buttons/GoldBtn";
 
 const BasicSearchBanner = styled.div`
     width: 100%;
@@ -27,14 +27,6 @@ const TrendallTitle = styled.div`
     color: #FCF7EE;
 `
 
-const HomepageFooter = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    background: #D4422F;
-    bottom: 0px;
-`
-
 const SearchBarDiv = styled.div`
     display: flex;
     padding-top: 2%;
@@ -51,7 +43,7 @@ const SearchBarComps = () => {
     <SearchBarDiv>
       <SearchWithDropdown/>
       <AdvancedSearchDiv>
-        <GoldBtn name="Advanced Search"/>
+        <GoldBtn name="Advanced Search" link="/advanced-search"/>
       </AdvancedSearchDiv>
     </SearchBarDiv>
   );
@@ -72,7 +64,7 @@ export default class HomePage extends React.Component {
             <TrendallTitle>A.D. Trendall<br/>Research Centre</TrendallTitle>
             <SearchBarComps/>
           </BasicSearchBanner>
-          <HomepageFooter/>
+          <Footer/>
         </div>
       ); 
     }

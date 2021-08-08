@@ -1,59 +1,105 @@
 import React, { Component } from "react";
- 
-import BannerVaseImage from '../components/images/basicsearchimage.png';
 import styled from 'styled-components';
-import GoldBtn from "../components/buttons/GoldBtn";
-import SearchWithDropdown from "../components/searchbars/SearchWithDropdown";
+import { makeStyles } from '@material-ui/core/styles';
+import { 
+  Paper,
+  Input,
+  IconButton,
+} from '@material-ui/core';
 import SearchPageHeader from "../components/header/SearchPageHeader";
+import Footer from '../components/page_elements/Footer';
+import InfoIcon from '../components/images/infoicon_brown.png';
+import GoldBtn from "../components/buttons/GoldBtn";
 
-const BasicSearchBanner = styled.div`
-    width: 100%;
-    height: 350px;
-    padding: 45px 60px 45px 60px;
-    box-sizing: border-box;
-    background-color: #D4422F;
-    background-image: url(${BannerVaseImage});
-    background-repeat: no-repeat;
-    background-position: right;
-    background-size: 850px;
+const FormDiv = styled.div`
+    width: 35%;
+    height: 100%;
+    left: 0;
+    margin-left: 100px;
+    padding: 45px;
+    display: absolute;
 `
 
-const TrendallTitle = styled.div`
+const AdvancedSearchTitle = styled.div`
     font-family: 'Roboto', sans-serif;
-    font-size: 65px;
-    letter-spacing: 0.05em;
-    line-height: 70px;
-    text-transform: uppercase;
-    color: #FCF7EE;
+    font-size: 30px;
+    font-weight: 100;
+    color: #3F342C;
+    margin-bottom: 15px;
 `
 
-const HomepageFooter = styled.div`
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    background: #D4422F;
-    bottom: 0px;
-`
-
-const SearchBarDiv = styled.div`
+const FieldTitle = styled(AdvancedSearchTitle)`
+    font-size: 16px;
     display: flex;
-    padding-top: 2%;
-    padding-bottom: 2%;
+    width: 36%;
+    margin-bottom: 0px;
 `
 
-const AdvancedSearchDiv = styled.div`
-    display: flex;
-    padding-left: 1%;
-`
+const useSearchStyles = makeStyles((theme) => ({
+  root: {
+    display: 'flex',
+    width: '100%',
+    height: 45,
+    elevation: 0,
+    alignItems: 'center',
+    backgroundColor: '#FCF7EE',
+  },
+  input: {
+    marginLeft: theme.spacing(2),
+    flex: 1,
+  },
+  iconButton: {
+    padding: 10,
+    marginLeft: 5,
+  },  
+}));
 
-const SearchBarComps = () => {
+//A function to take in the name of an imported image and return it as a styled image
+function Icon(props){
+  return <img src={props.name} width="auto" height="20px"/>; 
+}
+
+const FieldSearch = (props) => {
+  const classes = useSearchStyles();
+
   return (
-    <SearchBarDiv>
-      <SearchWithDropdown/>
-      <AdvancedSearchDiv>
-        <GoldBtn name="Advanced Search"/>
-      </AdvancedSearchDiv>
-    </SearchBarDiv>
+    <div>
+    <Paper component="form" elevation={0} className={classes.root}>
+      <FieldTitle>{props.title}</FieldTitle>
+      <Input 
+        placeholder={props.placeholder}
+        inputProps={{ 'aria-label': '{props.inputProps}' }} 
+        fullWidth  
+      />
+
+      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+        <Icon name={InfoIcon}/>
+      </IconButton>
+      </Paper>
+      </div>
+  )
+}
+
+
+const AdvancedForm = () => {
+  return (
+    <FormDiv>
+      <AdvancedSearchTitle>Advanced Search</AdvancedSearchTitle>
+      <FieldSearch title="Vase Number" placeholder="Type Vase Number" inputProps="vaseID"/>
+      <FieldSearch title="Fabric" placeholder="Enter Fabric Name" inputProps="fabric"/>
+      <FieldSearch title="Technique" placeholder="Enter Technique Name" inputProps="technique"/>
+      <FieldSearch title="Shape" placeholder="Enter Shape Name" inputProps="shape"/>
+      <FieldSearch title="Provenance" placeholder="Enter Provenance Name" inputProps="provenanceID"/>
+      <FieldSearch title="Inscription Type" placeholder="Enter Inscription Type" inputProps="inscriptionType"/>
+      <FieldSearch title="Inscription" placeholder="Enter Inscription" inputProps="inscription"/>
+      <FieldSearch title="Artist" placeholder="Enter Artist Name" inputProps="artist"/>
+      <FieldSearch title="Scholar" placeholder="Enter Scholar Name" inputProps="scholar"/>
+      <FieldSearch title="Decorated Area" placeholder="Enter Decorated Area" inputProps="decoratedArea"/>
+      <FieldSearch title="Collection Name" placeholder="Enter Collection Name" inputProps="collectionID"/>
+      <FieldSearch title="Collection No." placeholder="Type Collection Number" inputProps="collectionNo"/>
+      <FieldSearch title="Publication Name" placeholder="Enter Publication Name" inputProps="publication"/>
+
+    </FormDiv>
   );
 }
 
@@ -67,8 +113,8 @@ export default class AdvancedSearch extends React.Component {
       return(
         <div>
           <SearchPageHeader/>
-          
-          <HomepageFooter/>
+          <AdvancedForm/>
+          <Footer/>
         </div>
       ); 
     }

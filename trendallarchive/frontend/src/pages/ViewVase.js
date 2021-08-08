@@ -1,5 +1,8 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
+import SearchPageHeader from "../components/header/SearchPageHeader";
+import Footer from '../components/page_elements/Footer';
 
 export default class ViewVase extends React.Component {
     constructor(props) {
@@ -9,9 +12,8 @@ export default class ViewVase extends React.Component {
     render() {
       return(
         <div>
-            This is ViewVase.js
-
-        
+            <SearchPageHeader/>
+            <Footer/>
 
         </div>
       ); 
