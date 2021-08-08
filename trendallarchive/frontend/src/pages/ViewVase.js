@@ -10,7 +10,11 @@ export default class ViewVase extends React.Component {
       return(
         <div>
             This is ViewVase.js
+
+        
+
         </div>
       ); 
     }
+    
 }
