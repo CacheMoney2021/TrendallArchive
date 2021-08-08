@@ -1,6 +1,6 @@
 import React from 'react';
 import { HomeHeader, NavBar, NavLi } from './Header.elements';
-import {ReactComponent as LatrobeLogo} from '../images/latrobelogo.svg';
+import { ReactComponent as LatrobeLogo } from '../images/latrobelogo.svg';
 import BookmarkIcon from '../images/bookmarkicon_brown.png';
 import UserIcon from '../images/usericon_brown.png';
 

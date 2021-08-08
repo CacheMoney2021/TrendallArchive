@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles'
 import Button from '@material-ui/core/Button';
 
@@ -17,10 +18,8 @@ const ColorButton = withStyles((theme) => ({
 //Render the Homepage Header Component
 const GoldBtn = (props) => {
   return (
-    <ColorButton
-        onClick={() => { alert('clicked')}} 
-        variant="contained" 
-        disableElevation>{props.name}
+    <ColorButton component={Link} to={props.link} variant="contained" disableElevation>
+      {props.name}
     </ColorButton>
   )
 }
