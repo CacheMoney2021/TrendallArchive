@@ -2,6 +2,7 @@
 /*Styled Components for the Header/NavBar of the Trendall Archive*/
 //https://styled-components.com/docs
 import styled from 'styled-components';
+import TrendallLogoP from '../images/trendall_logo.png';
 
 //The header template at the top of the website and wraps around the logo and the navbar
 export const Header = styled.div`
@@ -11,14 +12,19 @@ export const Header = styled.div`
     display: flex;
 `
 
-//The header for the Homepage. Overrides style with a light cream background-color
+//The header for the Homepage. Overrides Header style with a light cream background-color
 export const HomeHeader = styled(Header)`
     background-color: #FCF7EE; 
 `
 
-//The header for all Search Pages. Overrides style with a red background-color
+//The header for all Search Pages. 
+//Overrides Header style with a red background-color. Includes Trendall Logo as a background img.
 export const SearchHeader = styled(Header)`
-    background-color: #D4422F; 
+    background-color: #D4422F;
+    background-image: url(${TrendallLogoP});
+    background-repeat: no-repeat;
+    background-position: 48px;
+    background-size: 225px; 
 `
 
 //A <ul> container for right aligned navigation with text links and icons.

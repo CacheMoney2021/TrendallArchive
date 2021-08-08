@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import HomepageHeader from "../components/header/HomepageHeader";
+ 
 import BannerVaseImage from '../components/images/basicsearchimage.png';
 import styled from 'styled-components';
 import GoldBtn from "../components/buttons/GoldBtn";
 import SearchWithDropdown from "../components/searchbars/SearchWithDropdown";
-
+import SearchPageHeader from "../components/header/SearchPageHeader";
 
 const BasicSearchBanner = styled.div`
     width: 100%;
@@ -58,20 +58,16 @@ const SearchBarComps = () => {
 }
 
 //Render the HomePage Component.
-export default class HomePage extends React.Component {
+export default class AdvancedSearch extends React.Component {
     constructor(props) {
       super(props);
     }
   
     render() {
-
       return(
         <div>
-          <HomepageHeader/>
-          <BasicSearchBanner>
-            <TrendallTitle>A.D. Trendall<br/>Research Centre</TrendallTitle>
-            <SearchBarComps/>
-          </BasicSearchBanner>
+          <SearchPageHeader/>
+          
           <HomepageFooter/>
         </div>
       ); 
