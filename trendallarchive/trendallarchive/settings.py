@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import pyodbc
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -79,18 +80,27 @@ WSGI_APPLICATION = 'trendallarchive.wsgi.application'
 #connect django to db
 DATABASES = {
      'default': {
-         'ENGINE': 'sql_server.pyodbc',
+         'ENGINE': 'sql_server.pyodbc', 
          'NAME': 'trendalldb',
          'USER': 'trenadmin',
-         'PASSWORD': '{Latrobe!}',#not sure if needs the curly brackets or not
+         'PASSWORD': 'Latrobe!',
          'HOST': 'mysqlserver9879.database.windows.net',
          'PORT': '1433',
          'OPTIONS': {
-             'driver': 'ODBC Driver 13 for SQL Server',
+             'driver': 'ODBC Driver 17 for SQL Server',
              'MARS_Connection': 'True',
          }
      }
  }
+ 
+#connection string. possibly need this in future. unsure.
+#  
+# server = 'mysqlserver9879.database.windows.net'
+# database = 'trendalldb'
+# username = 'trenadmin'
+# password = 'Latrobe!'
+# cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=tcp'+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
+# cursor = cnxn.cursor()
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
