@@ -7,6 +7,7 @@ const ColorButton = withStyles((theme) => ({
     root: {
       color: '#FFFFFF',
       height: 'auto',
+      width: '100%',
       backgroundColor: '#DAA844',
       '&:hover': {
         backgroundColor: '#C89A3E',
