@@ -7,5 +7,5 @@ urlpatterns = [
     path('', index),
     #path('viewvase', index),
     path('advanced-search', index),
-    path('viewvase/', views.viewShapeAPI, name="viewvaseapi")# path with API class to print the data request
+    path('viewvase/', views.viewVaseAPI, name="viewvaseapi")# path with API class to print the data request
 ]

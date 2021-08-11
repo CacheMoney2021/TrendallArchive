@@ -10,3 +10,4 @@ class ShapeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Shape
         fields = '__all__' #access all fields
+

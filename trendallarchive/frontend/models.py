@@ -32,14 +32,14 @@ class Collection(models.Model) :
 #define vase class
 class Vase(models.Model):
     vaseID = models.CharField(max_length=10) 
-    inscription = models.CharField(max_length=255)
+    inscription = models.CharField(max_length=255,blank=True)
     #minDateRange = models.CharField() possibly delete
     #maxDateRange = models.CharField()
-    fabric = models.CharField(max_length=100)
-    subject = models.CharField(max_length=255)
-    technique = models.CharField(max_length=100)
-    height = models.CharField(max_length=100) ## not sure how the diameter is represented in the text, possibly change this to floating decimal
-    diameter = models.CharField(max_length=100) ## as above
+    fabric = models.CharField(max_length=100, blank=True)
+    subject = models.CharField(max_length=255,blank=True)
+    technique = models.CharField(max_length=100,blank=True)
+    height = models.CharField(max_length=100,blank=True) ## not sure how the diameter is represented in the text, possibly change this to floating decimal
+    diameter = models.CharField(max_length=100,blank=True) ## as above
     shape = models.ForeignKey(Shape, on_delete=models.CASCADE)
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     provenance = models.ForeignKey(Provenance, on_delete=models.CASCADE)

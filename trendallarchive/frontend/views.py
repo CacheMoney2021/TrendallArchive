@@ -28,17 +28,31 @@ def viewVase(request):
     serializer = VaseSerializer(vase, many=True) #many=false when wanting just one record
     return Response()
 
-# API view to retreive shape table. GET method to read data only
+@csrf_exempt
+def viewVaseAPI(request,id=0):
+    if request.method=='GET': #read-only from table
+        vase = Vase.objects.all()
+        serializer_vase = VaseSerializer(vase, many=True)
+        return JsonResponse(serializer_vase.data, safe=False) #returned Json- dont know what to do with it now?
+    # elif request.method =='POST': #insert record into table
+    #     vase_data = JSONParser().parse(request)
+    #     serializer_vase = ShapeSerializer(data=vase_data)
+    #     if serializer_vase.is_valid()
+    #     serializer_vase.save()
+    #     return JsonResponse("added successfully", safe=False)
+    # # elif request.method=='PUT' #update existing record
+
+# API view to interact with shape table
 @csrf_exempt
 def viewShapeAPI(request,id=0):
-    if request.method=='GET':
+    if request.method=='GET': #read-only from table
         shape = Shape.objects.all()
         serializer_shape = ShapeSerializer(shape, many=True)
         return JsonResponse(serializer_shape.data, safe=False) #returned Json- dont know what to do with it now?
-    # elif request.method =='POST':
-    #     vase_data = JSONParser().parse(request)
-    #     serializer_vase = VaseSerializer(data=vase_data)
-    #     if serializer_vase.is_valid
-    #     serializer_vase.save()
+    # elif request.method =='POST': #insert record into table
+    #     shape_data = JSONParser().parse(request)
+    #     serializer_shape = ShapeSerializer(data=shape_data)
+    #     if serializer_shape.is_valid()
+    #     serializer_shape.save()
     #     return JsonResponse("added successfully", safe=False)
-    # elif request.method=='PUT'
+    # elif request.method=='PUT' #update existing record
