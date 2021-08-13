@@ -41,4 +41,3 @@ const NavBarElements = styled.li`
     font-size: 18px;
     letter-spacing: 1.5px;
 `
-

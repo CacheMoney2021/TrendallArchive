@@ -1,0 +1,12 @@
+this pseudo code function will update the vase's past collection when the 
+current collection in Vase is updated.
+
+Update Collection
+Input: current collection, new Collection
+Output: past collection, current collection
+START
+    if user inserts new collection to vase object
+        past collection = current collection
+        current collection = new collection
+    end if 
+STOP
