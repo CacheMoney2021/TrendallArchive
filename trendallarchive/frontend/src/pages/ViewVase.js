@@ -68,11 +68,11 @@ const HardCoded = () => {
 
 // function to fetch VaseApiDetails. Fetch() requires URL of API, 
 // but we only have local host URL though, so not sure if this is a valid URL?
-// not yet functioning or doing anything. 
+// not yet functioning or doing anything. This has public IP URL
 function VaseApiDetails(){
   const[data, setData] = useState(null);
   useEffect(() => {
-    fetch(/viewvaseapi/)
+    fetch("http://118.210.204.237/viewvaseapi/")
     .then(resp => resp.json())
     .then(setData)
     .catch(console.error);
@@ -83,6 +83,26 @@ function VaseApiDetails(){
   }
   return "hello";
 }
+
+//how to call this? 
+//Local host URL
+// function componentDidMount(){
+//   fetch('http://127.0.0.1:8000/viewvaseapi/')
+//       .then(res=> res.json())
+//       .then(({ data }) => {
+//           this.setState({
+//               isLoaded: true,
+//               items: data,
+//           })
+//       });
+// }
+// const VaseListing = data.map((elem) => {
+//   return {
+//     id: elem.id,
+//     shape: elem.shape,
+//     fabric: elem.fabric
+//   }
+// })
 
 
 
