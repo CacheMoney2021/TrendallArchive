@@ -31,14 +31,8 @@ def viewVaseAPI(request,id=0):
         vase = Vase.objects.all()
         serializer_vase = VaseSerializer(vase, many=True)
         return JsonResponse(serializer_vase.data, safe=False) #returned Json- dont know what to do with it now?
-    # elif request.method =='POST': #insert record into table
-#     #     vase_data = JSONParser().parse(request)
-    #     serializer_vase = ShapeSerializer(data=vase_data)
-    #     if serializer_vase.is_valid()
-    #     serializer_vase.save()
-    #     return JsonResponse("added successfully", safe=False)
-    # # elif request.method=='PUT' #update existing record
-    ######incomplete, just worrying about GET (ie read) for now
+
+   
 
 # API view to interact with shape table
 @csrf_exempt
