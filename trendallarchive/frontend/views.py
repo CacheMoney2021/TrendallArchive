@@ -23,6 +23,7 @@ from rest_framework.viewsets import ModelViewSet
 def index(request, *args, **kwargs):
     return render(request, "frontend/index.html")
 
+<<<<<<< HEAD
 
 #THIS IS THE API THAT IS FUNCTIONING AND RETURNING JSON
 @csrf_exempt
@@ -55,3 +56,5 @@ class VaseViewSet(ModelViewSet):
     # """
     queryset = Vase.objects.all()
     serializer_vase = VaseSerializer
+=======
+>>>>>>> da1d7c8e11da5f4bd3d89ef4d741a63daa4084b6
