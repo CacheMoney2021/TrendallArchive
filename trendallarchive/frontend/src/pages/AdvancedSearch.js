@@ -2,23 +2,30 @@ import React, { Component } from "react";
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import { 
   Paper,
   Input,
   IconButton,
 } from '@material-ui/core';
+import Radio from '@material-ui/core/Radio';
+import RadioGroup from '@material-ui/core/RadioGroup';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
 import SearchPageHeader from "../components/header/SearchPageHeader";
 import Footer from '../components/page_elements/Footer';
 import InfoIcon from '../components/images/infoicon_brown.png';
 import GoldBtn from "../components/buttons/GoldBtn";
+
 
 const FormDiv = styled.div`
     width: 35%;
     height: 100%;
     left: 0;
     margin-left: 100px;
+    margin-bottom:15px;
     padding: 45px;
     display: absolute;
+    overflow: scroll;
 `
 
 const AdvancedSearchTitle = styled.div`
@@ -32,8 +39,19 @@ const AdvancedSearchTitle = styled.div`
 const FieldTitle = styled(AdvancedSearchTitle)`
     font-size: 16px;
     display: flex;
-    width: 36%;
+    width: 40%;
     margin-bottom: 0px;
+`
+
+const FieldTitleImages = styled(AdvancedSearchTitle)`
+    font-size: 16px;
+    display: flex;
+    width: 26.5%;
+    margin-bottom: 0px;
+`
+
+const SearchBtnDiv = styled.div`
+    margin-top: 15px,
 `
 
 const useSearchStyles = makeStyles((theme) => ({
@@ -45,14 +63,15 @@ const useSearchStyles = makeStyles((theme) => ({
     alignItems: 'center',
     backgroundColor: '#FCF7EE',
   },
-  input: {
-    marginLeft: theme.spacing(2),
-    flex: 1,
-  },
   iconButton: {
     padding: 10,
     marginLeft: 5,
-  },  
+  },
+  radioGroup: {
+    '& .MuiFormGroup-root': {
+      color: 'black',
+    },
+  }  
 }));
 
 //A function to take in the name of an imported image and return it as a styled image
@@ -69,7 +88,7 @@ const FieldSearch = (props) => {
       <FieldTitle>{props.title}</FieldTitle>
       <Input 
         placeholder={props.placeholder}
-        inputProps={{ 'aria-label': '{props.inputProps}' }} 
+        inputProps={props.inputProps} 
         fullWidth  
       />
 
@@ -81,24 +100,60 @@ const FieldSearch = (props) => {
   )
 }
 
+const GreenRadio = withStyles({
+  root: {
+    color: '#909090',
+    '&$checked': {
+      color: '#3BA593',
+    },
+  },
+  checked: {},
+})((props) => <Radio {...props} />);
 
+const FieldImages = () => {
+  const classes = useSearchStyles();
+  const [value, setValue] = React.useState('yes');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  return (
+    <div>
+      
+    <Paper component="form" elevation={0} className={classes.root}>
+      <FieldTitleImages>With Images?</FieldTitleImages>
+      <RadioGroup className={classes.radioGroup} row aria-label="imagequery" name="imagequery" value={value} onChange={handleChange}>
+        <FormControlLabel value="yes" control={<GreenRadio />} label="Yes" />
+        <FormControlLabel value="no" control={<GreenRadio />} label="No" />
+      </RadioGroup>
+
+      </Paper>
+      </div>
+  )
+}
+
+//Advanced Search Form Component. Includes 'Search' Button.
 const AdvancedForm = () => {
   return (
     <FormDiv>
       <AdvancedSearchTitle>Advanced Search</AdvancedSearchTitle>
-      <FieldSearch title="Vase Number" placeholder="Type Vase Number" inputProps="vaseID"/>
-      <FieldSearch title="Fabric" placeholder="Enter Fabric Name" inputProps="fabric"/>
-      <FieldSearch title="Technique" placeholder="Enter Technique Name" inputProps="technique"/>
-      <FieldSearch title="Shape" placeholder="Enter Shape Name" inputProps="shape"/>
-      <FieldSearch title="Provenance" placeholder="Enter Provenance Name" inputProps="provenanceID"/>
-      <FieldSearch title="Inscription Type" placeholder="Enter Inscription Type" inputProps="inscriptionType"/>
-      <FieldSearch title="Inscription" placeholder="Enter Inscription" inputProps="inscription"/>
-      <FieldSearch title="Artist" placeholder="Enter Artist Name" inputProps="artist"/>
-      <FieldSearch title="Scholar" placeholder="Enter Scholar Name" inputProps="scholar"/>
-      <FieldSearch title="Decorated Area" placeholder="Enter Decorated Area" inputProps="decoratedArea"/>
-      <FieldSearch title="Collection Name" placeholder="Enter Collection Name" inputProps="collectionID"/>
-      <FieldSearch title="Collection No." placeholder="Type Collection Number" inputProps="collectionNo"/>
-      <FieldSearch title="Publication Name" placeholder="Enter Publication Name" inputProps="publication"/>
+      <FieldSearch title="Vase Number" placeholder="Type Vase Number" inputProps="{ 'aria-label': 'vaseID' }"/>
+      <FieldSearch title="Fabric" placeholder="Enter Fabric Name" inputProps="{ 'aria-label': 'fabric' }"/>
+      <FieldSearch title="Technique" placeholder="Enter Technique Name" inputProps="{ 'aria-label': 'technique' }"/>
+      <FieldSearch title="Shape" placeholder="Enter Shape Name" inputProps="{ 'aria-label': 'shape' }"/>
+      <FieldSearch title="Provenance" placeholder="Enter Provenance Name" inputProps="{ 'aria-label': 'provenanceID' }"/>
+      <FieldSearch title="Inscription Type" placeholder="Enter Inscription Type" inputProps="{ 'aria-label': 'inscriptionType' }"/>
+      <FieldSearch title="Inscription" placeholder="Enter Inscription" inputProps="{ 'aria-label': 'inscription' }"/>
+      <FieldSearch title="Artist" placeholder="Enter Artist Name" inputProps="{ 'aria-label': 'artist' }"/>
+      <FieldSearch title="Scholar" placeholder="Enter Scholar Name" inputProps="{ 'aria-label': 'scholar' }"/>
+      <FieldSearch title="Decorated Area" placeholder="Enter Decorated Area" inputProps="{ 'aria-label': 'decoratedArea' }"/>
+      <FieldSearch title="Collection Name" placeholder="Enter Collection Name" inputProps="{ 'aria-label': 'collectionID' }"/>
+      <FieldSearch title="Collection No." placeholder="Type Collection Number" inputProps="{ 'aria-label': 'collectionNo' }"/>
+      <FieldSearch title="Publication Name" placeholder="Enter Publication Name" inputProps="{ 'aria-label': 'publication' }"/>
+      <FieldImages/>
+      
+      <SearchBtnDiv><GoldBtn width='100px' name="Search" link="/advanced-search"/></SearchBtnDiv>
 
     </FormDiv>
   );
