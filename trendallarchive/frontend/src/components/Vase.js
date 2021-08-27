@@ -47,7 +47,7 @@ const Vase=()=>{
         Height:''
     })
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/viewvaseapi/')
+        axios.get('http://127.0.0.1:8000/api/listvaseapi/')
             .then(res=>{
                 console.log('Response from main API: ',res) //printing the response to the console
                 console.log('Home Data: ',res.data) //this returns undefined to the console. this is where the issue is. 

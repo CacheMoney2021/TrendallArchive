@@ -1,6 +1,7 @@
 from rest_framework import serializers
 from .models import Vase, Shape
 
+# vase serializer 
 class VaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Vase
