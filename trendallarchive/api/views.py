@@ -23,32 +23,22 @@ def listVaseAPI(request,id=0):
         return JsonResponse(serializer_vase.data, safe=False) 
 
 
-# close here..... this api takes a parameter from the url to search for a vase 
+
 # #https://www.django-rest-framework.org/api-guide/filtering/#djangofilterbackend
+
+#searches for a vase based off a VASEID passed through URL. so URL needs to include the query
+# eg http://127.0.0.1:8000/api/viewvase/?vaseID=27
+
 class ViewVase(generics.ListAPIView):
-    serializer_vase = VaseSerializer
-    @staticmethod
-    def list(self):
-        vase = Vase.objects.all()
+    serializer_class = VaseSerializer
+    def get_queryset(self):
+        queryset = Vase.objects.all()
         vaseID = self.request.query_params.get('vaseID')
-        vase = vase.filter(vase__vaseID=vaseID)
-        return vase
+        if vaseID is not None:
+            queryset = queryset.filter(vaseID=vaseID)
+        return queryset
 
-#below are different attempts that are abandoned for now but might come back to.....
 
-# a different attempt using filter but the import isnt working. leaving for now. 
-# class VaseViewSet(viewsets.ViewSet):
-#     def list(self,request):
-#         queryset = Vase.objects.all()
-#         serializer_vase = VaseSerializer
-#         filter_backends = [filters.SearchFilter]
-#         return JsonResponse(serializer_vase.data, safe=False)
 
-# @csrf_exempt
-# def basicSearchAPI(request,id=0):
-#     if request.method=='GET': #read-only from table
-#         vase = Vase.objects.all()
-#         serializer_vase = VaseSerializer(vase, many=True)
-#         return JsonResponse(serializer_vase.data, safe=False) 
 def main(request):
     return HttpResponse("Hello")
