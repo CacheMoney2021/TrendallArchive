@@ -11,9 +11,14 @@ import {
   Input,
   IconButton,
 } from '@material-ui/core';
-import InfoIcon from '../components/images/infoicon_brown.png';
-import GoldBtn from "../components/buttons/GoldBtn";
+import styled from 'styled-components';
 
+
+const ContainerDiv = styled.div`
+    padding: 20px;
+    height: 100%;
+    
+`
 
 
 export default class ViewVase extends React.Component {
@@ -23,10 +28,13 @@ export default class ViewVase extends React.Component {
   
     render() {
       return(
-        <div>
+        <div class>
             <SearchPageHeader/>
+            <ContainerDiv>
             <Vase/>
+            </ContainerDiv>
             <Footer/>
+
 
         </div>
       ); 

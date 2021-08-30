@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'api',
     'rest_framework',
-    'frontend'
+    'frontend',
+    'django_filters'
 ]
 
 MIDDLEWARE = [
@@ -81,7 +82,7 @@ WSGI_APPLICATION = 'trendallarchive.wsgi.application'
 DATABASES = {
      'default': {
          'ENGINE': 'sql_server.pyodbc', 
-         'NAME': 'trendalldb',
+         'NAME': 'trenddb',
          'USER': 'trenadmin',
          'PASSWORD': 'Latrobe!',
          'HOST': 'mysqlserver9879.database.windows.net',
@@ -92,7 +93,10 @@ DATABASES = {
          }
      }
  }
- 
+
+REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
+}
 #connection string. possibly need this in future. unsure.
 #  
 # server = 'mysqlserver9879.database.windows.net'

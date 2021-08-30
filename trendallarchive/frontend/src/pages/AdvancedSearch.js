@@ -16,13 +16,16 @@ import Footer from '../components/page_elements/Footer';
 import InfoIcon from '../components/images/infoicon_brown.png';
 import GoldBtn from "../components/buttons/GoldBtn";
 
+
 const FormDiv = styled.div`
     width: 35%;
     height: 100%;
     left: 0;
     margin-left: 100px;
+    margin-bottom:15px;
     padding: 45px;
     display: absolute;
+    overflow: scroll;
 `
 
 const AdvancedSearchTitle = styled.div`
@@ -48,7 +51,7 @@ const FieldTitleImages = styled(AdvancedSearchTitle)`
 `
 
 const SearchBtnDiv = styled.div`
-    margin-top: 15px;
+    margin-top: 15px,
 `
 
 const useSearchStyles = makeStyles((theme) => ({
