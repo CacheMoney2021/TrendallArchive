@@ -32,7 +32,7 @@ const AttributeHeading = styled(AttributeTitle)`
 const FormDiv = styled.div`
     width: 100%;
     height: 100%;
-    margin-left: 50%;
+    right: 0px;
     padding: 45px;
     display: absolute;
 `

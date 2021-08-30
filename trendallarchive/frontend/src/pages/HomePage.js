@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-import HomepageHeader from "../components/header/HomepageHeader";
+import HomepageHeader from "../components/page_elements/HomepageHeader";
 import SearchWithDropdown from "../components/searchbars/SearchWithDropdown";
-import Footer from "../components/page_elements/Footer";
+import { PageContainer, Footer } from "../components/page_elements/Div.elements";
 import BannerVaseImage from '../components/images/basicsearchimage.png';
 import GoldBtn from "../components/buttons/GoldBtn";
 

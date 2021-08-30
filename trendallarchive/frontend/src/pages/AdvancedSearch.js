@@ -7,25 +7,21 @@ import {
   Paper,
   Input,
   IconButton,
+  Radio,
+  RadioGroup,
+  FormControlLabel,
 } from '@material-ui/core';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import SearchPageHeader from "../components/header/SearchPageHeader";
-import Footer from '../components/page_elements/Footer';
+import { PageContainer, Footer } from "../components/page_elements/Div.elements";
+import SearchPageHeader from "../components/page_elements/SearchPageHeader";
 import InfoIcon from '../components/images/infoicon_brown.png';
 import GoldBtn from "../components/buttons/GoldBtn";
 
-
 const FormDiv = styled.div`
     width: 35%;
-    height: 100%;
     left: 0;
     margin-left: 100px;
     margin-bottom:15px;
     padding: 45px;
-    display: absolute;
-    overflow: scroll;
 `
 
 const AdvancedSearchTitle = styled.div`
@@ -38,20 +34,12 @@ const AdvancedSearchTitle = styled.div`
 
 const FieldTitle = styled(AdvancedSearchTitle)`
     font-size: 16px;
-    display: flex;
     width: 40%;
     margin-bottom: 0px;
 `
 
-const FieldTitleImages = styled(AdvancedSearchTitle)`
-    font-size: 16px;
-    display: flex;
+const FieldTitleImages = styled(FieldTitle)`
     width: 26.5%;
-    margin-bottom: 0px;
-`
-
-const SearchBtnDiv = styled.div`
-    margin-top: 15px,
 `
 
 const useSearchStyles = makeStyles((theme) => ({
@@ -153,7 +141,7 @@ const AdvancedForm = () => {
       <FieldSearch title="Publication Name" placeholder="Enter Publication Name" inputProps="{ 'aria-label': 'publication' }"/>
       <FieldImages/>
       
-      <SearchBtnDiv><GoldBtn width='100px' name="Search" link="/advanced-search"/></SearchBtnDiv>
+      <GoldBtn width='100px' name="Search" link="/advanced-search"/>
 
     </FormDiv>
   );
@@ -169,7 +157,9 @@ export default class AdvancedSearch extends React.Component {
       return(
         <div>
           <SearchPageHeader/>
-          <AdvancedForm/>
+          <PageContainer>
+            <AdvancedForm/>
+          </PageContainer>
           <Footer/>
         </div>
       ); 
