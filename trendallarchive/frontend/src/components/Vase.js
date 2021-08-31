@@ -56,9 +56,7 @@ const Vase=()=>{
     return(
         <>
 
-        <ImgDiv>
-            <img src= "https://trendallplates.blob.core.windows.net/images/image1.png"/>
-        </ImgDiv>
+
         <FormDiv>
            <VaseTitle>{Data.VaseID}, {Data.Fabric}</VaseTitle> 
            <Attribute><p>VASE NUMBER: {Data.VaseID}</p></Attribute> 
