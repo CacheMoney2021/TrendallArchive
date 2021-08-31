@@ -18,17 +18,11 @@ const AttributeTitle = styled.div`
 `
 const Attribute = styled(AttributeTitle)`
     font-size: 16px;
-    display: flex;
     width: 36%;
     margin-bottom: 0px;
 `
-const AttributeHeading = styled(AttributeTitle)`
-    font-size: 17px;
-    font-weight: 300;
-    display: flex;
-    width: 36%;
-    margin-bottom: 0px;
-`
+
+
 const FormDiv = styled.div`
     width: 100%;
     height: 100%;
@@ -47,19 +41,22 @@ const Vase=()=>{
         Height:''
     })
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/viewvaseapi/')
+        axios.get('http://127.0.0.1:8000/api/listvaseapi/')
             .then(res=>{
                 console.log('Response from main API: ',res) //printing the response to the console
-                console.log('Home Data: ',res.data) //this returns undefined to the console. this is where the issue is. 
-                let vaseData=res.data[0]; //add data tovaseData, then assign into each variable
+                let vaseData=res.data[0]; //add data to vaseData, then assign into each variable
                 setData({VaseID:vaseData.vaseID,Fabric:vaseData.fabric,Technique:vaseData.technique,Subject:vaseData.subject, Height:vaseData.height}) //vaseData is never assigned so these variables areundefined
             })
             .catch(err=>{
                 console.log(err);
             })
     },[])
+
+
     return(
         <>
+
+
         <FormDiv>
            <VaseTitle>{Data.VaseID}, {Data.Fabric}</VaseTitle> 
            <Attribute><p>VASE NUMBER: {Data.VaseID}</p></Attribute> 

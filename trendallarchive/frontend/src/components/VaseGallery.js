@@ -32,19 +32,6 @@ const images = [
   "3",
 ];
 
-/*
-
-const items = [
-  <div className="item" data-value="1"><VaseImg name={VaseOne}/></div>,
-  <div className="item" data-value="2"><VaseImg name={VaseTwo}/></div>,
-  <div className="item" data-value="3"><img src={BannerVaseImage}/></div>,
-  <div className="item" data-value="4"><img src={BannerVaseImage}/></div>,
-  <div className="item" data-value="5"><img src={BannerVaseImage}/></div>,
-];
-
-
-*/
-
 class Gallery extends React.Component {
   state = {
     galleryItems: images.map((i) => (
