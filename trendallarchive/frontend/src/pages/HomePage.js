@@ -6,6 +6,7 @@ import { PageContainer, Footer } from "../components/page_elements/Div.elements"
 import BannerVaseImage from '../components/images/basicsearchimage.png';
 import GoldBtn from "../components/buttons/GoldBtn";
 
+
 const BasicSearchBanner = styled.div`
     width: 100%;
     height: 350px;
