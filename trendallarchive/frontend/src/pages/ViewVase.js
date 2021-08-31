@@ -20,7 +20,7 @@ export default class ViewVase extends React.Component {
 
     render() {
       return(
-        <div>
+        <div class>
             <SearchPageHeader/>
               <PageContainer>
                 <VaseGallery/>
