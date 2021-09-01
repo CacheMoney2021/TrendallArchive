@@ -1,10 +1,12 @@
 import React from "react";
+import React,{useEffect,useState} from 'react';
+import axios from 'axios';
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import styled from 'styled-components';
 import "./VaseGallery.css";
 import BannerVaseImage from '../components/images/basicsearchimage.png';
-import Images from "../components/Images.js";
+import { Table } from "@material-ui/core";
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -30,15 +32,6 @@ const VaseImg = (props) => {
   return <img src={props.name} width="350px" height="auto"/>; 
 }
 
-const ChildComponent = (props) => {    
-  return "https://trendallplates.blob.core.windows.net/images/"+props.plateRef+".png"//take in plateRef from parent
-};
-
-
-const images = [
-//<img src={`https://trendallplates.blob.core.windows.net/images/${props.plateRef}.png`}/> error saying plateRef is undefined
-];
-
 
 class Gallery extends React.Component {
   state = {
@@ -54,20 +47,10 @@ class Gallery extends React.Component {
     1024: { items: 1 }
   };
 
-  onSlideChange(e) {
-    console.debug("Item`s position during a change: ", e.item);
-    console.debug("Slide`s position during a change: ", e.slide);
-  }
-
-  onSlideChanged(e) {
-    console.debug("Item`s position after changes: ", e.item);
-    console.debug("Slide`s position after changes: ", e.slide);
-  }
 
   render() {
     return (
       <FormDiv>
-        <ChildComponent/>
         <AliceCarousel
           items={this.state.galleryItems}
           responsive={this.responsive}

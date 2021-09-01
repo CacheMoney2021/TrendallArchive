@@ -2,27 +2,33 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
-from rest_framework.parsers import JSONParser
 from django.http.response import HttpResponse, JsonResponse
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
-from .serializers import VaseSerializer
-from .models import Vase
+from .serializers import VaseSerializer, PlateSerializer
+from .models import Vase, Plate
 from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework import filters
 
 
-#Working API that returns all vase info. (vase.js only showing vase[0])
-@csrf_exempt
-def listVaseAPI(request,id=0):
-    if request.method=='GET': #read-only from table
-        vase = Vase.objects.all()
-        serializer_vase = VaseSerializer(vase, many=True)
-        return JsonResponse(serializer_vase.data, safe=False) 
+# #Working API that returns all vase info. (vase.js only showing vase[0])
+# @csrf_exempt
+# def listVaseAPI(request,id=0):
+#     if request.method=='GET': #read-only from table
+#         vase = Vase.objects.all()
+#         serializer_vase = VaseSerializer(vase, many=True)
+#         return JsonResponse(serializer_vase.data, safe=False) 
 
-
+#get a vase with a vaseID passed through the URL
+class GetVase(generics.ListAPIView):
+    serializer_class = VaseSerializer 
+    def get_queryset(self):
+        queryset = Vase.objects.all()
+        vaseID = self.request.query_params.get('vaseID')
+        if vaseID is not None:
+            queryset = queryset.filter(vaseID=vaseID)
+        return queryset
 
 # #https://www.django-rest-framework.org/api-guide/filtering/#djangofilterbackend
 
@@ -56,6 +62,25 @@ class ViewVase(generics.ListAPIView):
         if vaseID is not None:
             queryset = queryset.filter(vaseID=vaseID)
         return queryset 
+
+# @csrf_exempt
+# def getPlate(request,id=0):
+#     if request.method=='GET': #read-only from table
+#         plate = Plate.objects.all()
+#         serializer_plate = PlateSerializer(plate, many=True)
+#         return JsonResponse(serializer_plate.data, safe=False) 
+
+class GetPlate(generics.ListAPIView):
+    serializer_class = PlateSerializer 
+    def get_queryset(self):
+        queryset = Plate.objects.all()
+        vase_id = self.request.query_params.get('vase_id')
+        plateRef = self.request.query_params.get('plateRef')
+        if vase_id is not None:
+            queryset = queryset.filter(vase_id=vase_id)
+        if plateRef is not None:
+            queryset = queryset.filter(plateRef=plateRef)
+        return queryset
 
 
 def main(request):
