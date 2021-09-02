@@ -29,6 +29,7 @@ const FormDiv = styled.div`
     right: 0px;
     padding: 45px;
     display: absolute;
+    margin-top: 70px;
 `
 
 const Vase=()=>{

@@ -10,6 +10,7 @@ export const Header = styled.div`
     height: 75px;
     padding: 5px 30px 5px 30px;
     display: flex;
+    top: 0px;
 `
 
 //The header for the Homepage. Overrides Header style with a light cream background-color
@@ -25,6 +26,7 @@ export const SearchHeader = styled(Header)`
     background-repeat: no-repeat;
     background-position: 48px;
     background-size: 225px; 
+    position: absolute;
 `
 
 //A <ul> container for right aligned navigation with text links and icons.
@@ -33,7 +35,7 @@ export const NavBar = styled.ul`
     width: auto;
     display: flex;
     margin: 0;
-    position: absolute;
+    position: fixed;
     right: 0;
     padding: 0px 40px 0px 0px;
 `
