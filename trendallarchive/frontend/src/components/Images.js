@@ -41,16 +41,16 @@ const Images=()=>{
         axios.get(`http://127.0.0.1:8000/api/getplate/?vase_id=10`)//need to know how to pass in vase_id, hard coded for now
             .then(response => {
                 console.log(response.data)
-                let vaseData=response.data; 
-                setData({plateRef:vaseData.plateRef});//assign to plateRef
+                let vaseData=response.data[0]; //add data to vaseData, then assign into each variable
+                setData({plateRef:vaseData.plateRef});
         })
 }, []);
 
 
     return(
-
-           <ChildComponent plateRef = "hello"/> //pass down to child component
-
+        <>
+           {Data.plateRef}
+        </>
     )
 }
 export default Images;

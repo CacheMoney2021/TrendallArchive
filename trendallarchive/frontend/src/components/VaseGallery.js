@@ -30,13 +30,9 @@ const VaseImg = (props) => {
   return <img src={props.name} width="350px" height="auto"/>; 
 }
 
-const ChildComponent = (props) => {    
-  return "https://trendallplates.blob.core.windows.net/images/"+props.plateRef+".png"//take in plateRef from parent
-};
-
-
+let tag = Images.toString()
 const images = [
-//<img src={`https://trendallplates.blob.core.windows.net/images/${props.plateRef}.png`}/> error saying plateRef is undefined
+<img src={`https://trendallplates.blob.core.windows.net/images/${tag}.png`}/>
 ];
 
 
@@ -67,7 +63,7 @@ class Gallery extends React.Component {
   render() {
     return (
       <FormDiv>
-        <ChildComponent/>
+        <Images/>
         <AliceCarousel
           items={this.state.galleryItems}
           responsive={this.responsive}

@@ -32,6 +32,7 @@ class Collection(models.Model) :
 #define vase class
 class Vase(models.Model):
     vaseID = models.CharField(max_length=10) 
+    vaseRef = models.CharField(max_length=255,blank=True,null=True)
     inscription = models.CharField(max_length=255,blank=True,null=True)
     fabric = models.CharField(max_length=100, blank=True,null=True)
     subject = models.CharField(max_length=255,blank=True,null=True)
