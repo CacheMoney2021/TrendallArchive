@@ -6,7 +6,6 @@ import styled from 'styled-components';
 import VaseGallery from '../components/VaseGallery';
 import { makeStyles } from '@material-ui/core/styles';
 import { IconButton } from '@material-ui/core';
-import BackIcon from '../components/images/backarrow_black.png';
 import { useHistory } from 'react-router-dom';
 
 const VaseWrapper = styled(PageContainer)`

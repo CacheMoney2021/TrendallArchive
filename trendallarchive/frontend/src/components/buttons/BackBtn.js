@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { IconButton } from '@material-ui/core';
-import BackIcon from '../images/backarrow_black.png';
+import BackIcon from '../images/backarrow_brown.png';
 import { useHistory } from 'react-router-dom';
 
 const useBtnStyles = makeStyles((theme) => ({
