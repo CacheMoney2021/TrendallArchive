@@ -3,12 +3,9 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import styled from 'styled-components';
 import "./VaseGallery.css";
-<<<<<<< HEAD
 import BackBtn from '../components/buttons/BackBtn';
-=======
 import BannerVaseImage from '../components/images/basicsearchimage.png';
 import Images from "../components/Images.js";
->>>>>>> 807174c4cfd5871698f06c41ecb5a98867f49076
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -32,21 +29,12 @@ const VaseImg = (props) => {
   return <img src={props.name} width="500px" height="auto"/>; 
 }
 
-<<<<<<< HEAD
-const images = [
-  <img src="https://trendallplates.blob.core.windows.net/images/image2.png"/>,
-  <img src="https://trendallplates.blob.core.windows.net/images/image2.png"/>,
-  <img src="https://trendallplates.blob.core.windows.net/images/image2.png"/>,
-];
-
-=======
 let tag = Images.toString()
 const images = [
 <img src={`https://trendallplates.blob.core.windows.net/images/${tag}.png`}/>
 ];
 
 
->>>>>>> 807174c4cfd5871698f06c41ecb5a98867f49076
 class Gallery extends React.Component {
   state = {
     galleryItems: images.map((i) => (
@@ -73,7 +61,6 @@ class Gallery extends React.Component {
 
   render() {
     return (
-<<<<<<< HEAD
         <FormDiv>
           <BackBtn/>
           <div className="img-gallery">
@@ -91,23 +78,6 @@ class Gallery extends React.Component {
             />
           </div>
         </FormDiv>
-=======
-      <FormDiv>
-        <Images/>
-        <AliceCarousel
-          items={this.state.galleryItems}
-          responsive={this.responsive}
-          autoPlayInterval={2000}
-          autoPlayDirection="ltr"
-          autoPlay={false}
-          fadeOutAnimation={true}
-          playButtonEnabled={false}
-          disableAutoPlayOnAction={true}
-          onSlideChange={this.onSlideChange}
-          onSlideChanged={this.onSlideChanged}
-        />
-      </FormDiv>
->>>>>>> 807174c4cfd5871698f06c41ecb5a98867f49076
     );
   }
 }
