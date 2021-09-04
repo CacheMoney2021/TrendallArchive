@@ -31,7 +31,7 @@ const FormDiv = styled.div`
     display: absolute;
     margin-top: 70px;
 `
-
+//function to call and consume the API
 const Vase=()=>{
     
     const [Data,setData]=useState({
@@ -42,7 +42,7 @@ const Vase=()=>{
         Height:''
     })
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/listvaseapi/')
+        axios.get('http://127.0.0.1:8000/api/viewvase/?')//get the selected vase using the vaseID passed through the URL
             .then(res=>{
                 console.log('Response from main API: ',res) //printing the response to the console
                 let vaseData=res.data[0]; //add data to vaseData, then assign into each variable
@@ -53,11 +53,11 @@ const Vase=()=>{
             })
     },[])
 
-
+//return the vase into that was retrieved in the function
     return(
         <>
 
-
+        
         <FormDiv>
            <VaseTitle>{Data.VaseID}, {Data.Fabric}</VaseTitle> 
            <Attribute><p>VASE NUMBER: {Data.VaseID}</p></Attribute> 
