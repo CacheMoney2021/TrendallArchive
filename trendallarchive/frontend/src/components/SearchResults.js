@@ -49,20 +49,3 @@ const SearchResults = () => {
 
 export default SearchResults;
 
-{/*
-<ol className="card-list">
-<li>
-    <h2 className="card-name">{item.vaseID}, {item.fabric}, {item.technique}</h2>
-</li>
-<li>
-    population: <span>1,000</span>
-</li>
-<li>
-    Region: <span>Italy</span>
-</li>
-<li>
-    Capital: <span>Rome</span>
-</li>
-</ol>
-
-*/}
