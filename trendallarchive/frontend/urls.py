@@ -7,5 +7,6 @@ from rest_framework import routers
 urlpatterns = [
     path('', index),
     path('viewvase/', index),
-    path('advanced-search', index)
+    path('advanced-search', index),
+    path('search', index),
 ]

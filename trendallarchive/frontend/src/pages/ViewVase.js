@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
-import reactDom from 'react-dom';
-import { useState } from 'react';
-import PropTypes from 'prop-types';
 import Vase from '../components/Vase';
 import SearchPageHeader from "../components/page_elements/SearchPageHeader";
-import { Footer } from "../components/page_elements/Div.elements";
+import { PageContainer, Footer } from "../components/page_elements/Div.elements";
 import styled from 'styled-components';
 import VaseGallery from '../components/VaseGallery';
+import { makeStyles } from '@material-ui/core/styles';
+import { IconButton } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
 
-
-const PageContainer = styled.div`
-    display: flex;
+const VaseWrapper = styled(PageContainer)`
+  margin-left: 80px;
+  margin-top: 70px;
 `
 
 export default class ViewVase extends React.Component {
@@ -20,14 +20,15 @@ export default class ViewVase extends React.Component {
 
     render() {
       return(
-        <div class>
+        <div>
             <SearchPageHeader/>
-              <PageContainer>
+              <VaseWrapper>
                 <VaseGallery/>
                 <Vase/>
-              </PageContainer>
+              </VaseWrapper>
             <Footer/>
         </div>
       ); 
     }
 }
+

@@ -7,6 +7,8 @@ export const PageContainer = styled.div`
     width: auto;
     height: 100%;
     display: flex;
+    background-colour: #FCF7EE;
+    margin-top: 80px;
 `
 
 //The header template at the top of the website and wraps around the logo and the navbar
