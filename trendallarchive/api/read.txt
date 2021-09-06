@@ -1,1 +1,0 @@
-API is retreving multiple objects in from JSON, is only assigning data[0]. need to work out for loop? 
