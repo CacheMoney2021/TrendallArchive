@@ -141,7 +141,7 @@ const AdvancedForm = () => {
       <FieldSearch title="Publication Name" placeholder="Enter Publication Name" inputProps="{ 'aria-label': 'publication' }"/>
       <FieldImages/>
       
-      <GoldBtn width='100px' name="Search" link="/advanced-search"/>
+      <GoldBtn width='100px' name="Search" link="/search"/> 
 
     </FormDiv>
   );

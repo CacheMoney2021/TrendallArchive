@@ -95,5 +95,6 @@ class GetPlate(generics.ListAPIView):
             queryset = queryset.filter(plateRef=plateRef)
         return queryset
 
+
 def main(request):
     return HttpResponse("Hello")

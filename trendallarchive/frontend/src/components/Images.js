@@ -30,6 +30,9 @@ const FormDiv = styled.div`
     padding: 45px;
     display: absolute;
 `
+const urlParams = new URLSearchParams(window.location.search);
+const vaseID = urlParams.get('vaseID');
+console.log(vaseID);
 //get a plate reference from Plate table to pass in as a string to the URL of its image in blob storage
 const Images=()=>{
 
@@ -38,7 +41,7 @@ const Images=()=>{
         plateRef:''
     });
     useEffect(() => {
-        axios.get(`http://127.0.0.1:8000/api/getplate/?vase_id=10`)//need to know how to pass in vase_id, hard coded for now
+        axios.get(`http:127.0.0.1:8000/api/viewvase/?vaseID=${vaseID}`)//need to know how to pass in vase_id, hard coded for now
             .then(response => {
                 console.log(response.data)
                 let vaseData=response.data[0]; //add data to vaseData, then assign into each variable

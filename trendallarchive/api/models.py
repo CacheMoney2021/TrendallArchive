@@ -56,6 +56,8 @@ class Vase(models.Model):
 class Plate(models.Model): 
     vase = models.ForeignKey(Vase, on_delete=models.CASCADE)
     plateRef = models.CharField(max_length=100)
+    def vaseID(self):
+        return self.vase.vaseID
 
 #define scholar class
 class Scholar(models.Model) :

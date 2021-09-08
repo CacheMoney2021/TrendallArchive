@@ -23,8 +23,8 @@ export default class WebRouter extends React.Component {
           <Switch>
             <Route exact path="/" component={HomePage} />
             <Route exact path="/viewvase/:id?" component={ViewVase} />
-            <Route exact path="/advanced-search" component={AdvancedSearch} />
-            <Route exact path="/search" component={FacetedSearch} />
+            <Route exact path="/advanced-search/" component={AdvancedSearch} />
+            <Route exact path="/search/" component={FacetedSearch} />
           </Switch>
         </Router>
       );

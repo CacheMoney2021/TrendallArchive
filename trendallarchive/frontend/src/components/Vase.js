@@ -31,6 +31,10 @@ const FormDiv = styled.div`
     display: absolute;
     margin-top: 70px;
 `
+//takes vaseID parameter from the URL to pass into API below
+const urlParams = new URLSearchParams(window.location.search);
+const vaseID = urlParams.get('vaseID');
+console.log(vaseID);
 //function to call and consume the API
 const Vase=()=>{
     
@@ -42,7 +46,7 @@ const Vase=()=>{
         Height:''
     })
     useEffect(()=>{
-        axios.get('http://127.0.0.1:8000/api/viewvase/?')//get the selected vase using the vaseID passed through the URL
+        axios.get(`http://127.0.0.1:8000/api/viewvase/?vaseID=${vaseID}`)//get the selected vase using the vaseID passed through the URL
             .then(res=>{
                 console.log('Response from main API: ',res) //printing the response to the console
                 let vaseData=res.data[0]; //add data to vaseData, then assign into each variable
