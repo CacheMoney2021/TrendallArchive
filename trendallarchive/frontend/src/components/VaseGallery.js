@@ -34,31 +34,31 @@ const vaseID = urlParams.get('vaseID');
 console.log(vaseID);
 
 
-// const getImg = (vaseID)=>{
-//   const [Data,setData]=useState({
-//       plateRef:''
-//   })
-//   useEffect(()=>{
-//     axios.get(`http://127.0.0.1:8000/api/getplate/?vaseID=${vaseID}`)//get the selected vase using the vaseID passed through the URL
-//         .then(res=>{
-//             console.log('Response from main API: ',res) //printing the response to the console
-//             let plateData=res.data[0]; //add data to vaseData, then assign into each variable
-//             setData({plateRef:plateData.plateRef}) 
-//         })
-//         .catch(err=>{
-//             console.log(err);
-//         })
-//       console.log(vaseID)
-//   },[])
-//   return(
-//     <>
-//       {Data.plateRef}
-//     </>
-//   )
-// }
+const getImg = (vaseID)=>{
+  const [Data,setData]=useState({
+      plateRef:''
+  })
+  useEffect(()=>{
+    axios.get(`http://127.0.0.1:8000/api/getplate/?vaseID=${vaseID}`)//get the selected vase using the vaseID passed through the URL
+        .then(res=>{
+            console.log('Response from main API: ',res) //printing the response to the console
+            let plateData=res.data[0]; //add data to vaseData, then assign into each variable
+            setData({plateRef:plateData.plateRef}) 
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+      console.log(vaseID)
+  },[])
+  return(
+    <>
+      {Data.plateRef}
+    </>
+  )
+}
 
 const images = [
-<img src={`https://trendallplates.blob.core.windows.net/images/$.png`}/>//plateRef is undefined
+<img src={`https://trendallplates.blob.core.windows.net/images/${getImg}`}/>//plateRef is returning as undefined
 ];
 
 class Gallery extends React.Component {
