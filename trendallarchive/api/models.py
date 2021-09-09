@@ -43,11 +43,21 @@ class Vase(models.Model):
     artist = models.ForeignKey(Artist, on_delete=models.CASCADE)
     provenance = models.ForeignKey(Provenance, on_delete=models.CASCADE)
     collection = models.ForeignKey(Collection, on_delete=models.CASCADE)
+    def artist_name(self):
+        return self.artist.artistName
+    def collection_name(self):
+        return self.collection.collectionName
+    def provenance_name(self):
+        return self.provenance.provenanceName
+    def shape_name(self):
+        return self.shape.shapeName
 
 #define plate class
 class Plate(models.Model): 
     vase = models.ForeignKey(Vase, on_delete=models.CASCADE)
     plateRef = models.CharField(max_length=100)
+    def vaseID(self):
+        return self.vase.vaseID
 
 #define scholar class
 class Scholar(models.Model) :

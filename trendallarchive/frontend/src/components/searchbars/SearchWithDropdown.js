@@ -128,8 +128,8 @@ const SearchWithDropdown = () => {
           placeholder="Search the Trendall Archive in the selected field..."
           inputProps={{ 'aria-label': 'search trendall archive' }}
         />
-        <IconButton type="submit" className={classes.iconButton} aria-label="search">
-          <SearchIcon />
+        <IconButton type="submit" className={classes.iconButton} aria-label="search" href ={`http://127.0.0.1:8000/search/`}>
+        <SearchIcon/>
         </IconButton>
         
     </Paper>

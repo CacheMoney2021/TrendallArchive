@@ -8,5 +8,5 @@ urlpatterns = [
     path('', index),
     path('viewvase/', index),
     path('advanced-search', index),
-    path('search', index),
+    path('search/', index),
 ]
