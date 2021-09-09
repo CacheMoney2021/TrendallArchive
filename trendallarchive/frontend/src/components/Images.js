@@ -31,7 +31,7 @@ const FormDiv = styled.div`
     display: absolute;
 `
 //get a plate reference from Plate table to pass in as a string to the URL of its image in blob storage
-const Images=()=>{
+const Images = () => {
 
     const [Data, setData] = useState({
         VaseID:'',

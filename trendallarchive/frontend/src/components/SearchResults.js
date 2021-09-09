@@ -4,19 +4,19 @@ import "./SearchResults.css";
 
 
 const SearchResults = () => {
-    const [Data, setData]=useState([])
+  const [Data, setData]=useState([])
 
   useEffect(() => {
     axios.get('http://127.0.0.1:8000/api/viewvase/')
-        .then((res) => {
-            console.log(res.data)
-            setData(res.data)
+        .then((response) => {
+            console.log(response.data)
+            setData(response.data)
         })
         .catch((err) => {
             console.log(err);
         })
   },[])
-
+  
     return (
         <div className="wrapper">
             <ul className="card-grid">
