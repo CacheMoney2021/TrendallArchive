@@ -11,22 +11,18 @@ from django.db.models.fields.related import ManyToManyField;
 
 #define shape class
 class Shape(models.Model) :
-    shapeID = models.CharField(max_length=10)
     shapeName = models.CharField(max_length=100)
 
 #define artist class
 class Artist(models.Model) :
-    artistID = models.CharField(max_length=10)
     artistName = models.CharField(max_length=100)
 
 #define provenance class
 class Provenance(models.Model) :
-    ProvenanceID = models.CharField(max_length=10)
     provenanceName = models.CharField(max_length=100)
 
 #define collection class
 class Collection(models.Model) :
-    collectionID = models.CharField(max_length=10)
     collectionName = models.CharField(max_length=100)
 
 #define vase class

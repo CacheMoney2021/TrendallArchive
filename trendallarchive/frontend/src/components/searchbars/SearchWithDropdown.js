@@ -12,7 +12,7 @@ import SearchIcon from '@material-ui/icons/Search';
 const fields = [
     {
         value: 'VaseID',
-        label: 'Vase Number',
+        label: 'vaseID',
       },
       {
         value: 'Shape',
