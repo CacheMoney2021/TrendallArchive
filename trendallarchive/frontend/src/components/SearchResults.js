@@ -10,7 +10,7 @@ const SearchResults = () => {
   const pathname = urlPath.replace("http://127.0.0.1:8000/search/", "");
 
   useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/api/search/${pathname}`)
+    axios.get(`http://127.0.0.1:8000/api/searchresults/${pathname}`)
         .then((res) => {
             console.log(res.data)
             setData(res.data)
