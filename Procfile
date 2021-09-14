@@ -1,1 +1,2 @@
-web: gunicorn trendallarchive trendallarchive.wsgi
+release:python manage.py migrate
+web:gunicorn trendallarchive trendallarchive.wsgi
