@@ -13,10 +13,12 @@
     --gray: hsl(0, 0%, 52%);
     --border: rgba(0, 0, 0, 0.1);
 }
-.wrapper ul,
+.wrapper ul {
+    text-align: center;
+    padding-inline-start: 0px;
+}
 .wrapper ol {
     margin: 30px auto;
-    text-align: center;
     width: 480px;
     list-style: none;
 }
@@ -29,10 +31,14 @@
     padding: 5px;
 }
 .wrapper {
-    width: 96%;
+    
+    width: 100%;
+    /*
     max-width: 1140px;
-    margin-top: 15px;
+    
     margin-left: 35px;
+    */
+    margin: 50px;
     background: var(--bg);
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -41,9 +47,8 @@
     font-style: italic;
 }
 .card-grid {
-    margin: 2em 0;
     display: grid;
-    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 5fr));
     grid-gap: 48px;
 }
 .card {

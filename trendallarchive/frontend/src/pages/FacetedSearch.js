@@ -14,7 +14,6 @@ const FormDiv = styled.div`
     background-color: #F6E7CB;
 `
 
-
 //Render the Search Results Page.
 export default class FacetedSearch extends React.Component {
     constructor(props) {
@@ -26,7 +25,6 @@ export default class FacetedSearch extends React.Component {
         <div>
          <SearchPageHeader/>
             <PageContainer>
-              <FormDiv/>
               <SearchResults/>
             </PageContainer>
           <Footer/>

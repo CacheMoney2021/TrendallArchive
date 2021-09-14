@@ -3,7 +3,7 @@ import {useEffect,useState} from 'react';
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import styled from 'styled-components';
-import "./VaseGallery.css";
+import "./page_elements/VaseGallery.css";
 import BackBtn from '../components/buttons/BackBtn';
 import BannerVaseImage from '../components/images/basicsearchimage.png';
 import Images from "../components/Images.js";
