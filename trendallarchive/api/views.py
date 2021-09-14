@@ -5,9 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http.response import HttpResponse, JsonResponse
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
-from .serializers import VaseSerializer, PlateSerializer, ArtistSerializer
+from .serializers import VaseSerializer, PlateSerializer, ArtistSerializer, ShapeSerializer,ProvenanceSerializer, CollectionSerializer
 from .models import Vase, Plate, Artist, Collection, Shape, Provenance
-from rest_framework import viewsets
 from rest_framework import generics
 from rest_framework import filters
 
@@ -30,14 +29,8 @@ class GetVase(generics.ListAPIView):
             queryset = queryset.filter(vaseID=vaseID)
         return queryset
 
-# #https://www.django-rest-framework.org/api-guide/filtering/#djangofilterbackend
 
-#API view searches for a vase based off a paramter passed through URL. so URL needs to include the query
-# doesnt have subject yet, need to work out how to do a partial match search for this. 
-# eg http://127.0.0.1:8000/api/viewvase/?vaseID=27
-# updated to take an artist name rather than artist id (same for the other FK) hwoever only works for some inputs?
-#eg filters down when using the record with (dummy record) "collection name" but not "Naples"??
-
+#API view for Basic Search and Advanced Search, takes in a vase paramter passed through URL.
 class FilterVases(generics.ListAPIView):
     serializer_class = VaseSerializer 
     def get_queryset(self):
@@ -80,6 +73,10 @@ class FilterVases(generics.ListAPIView):
         vaseID = self.request.query_params.get('vaseID')
         if vaseID is not None:
             queryset = queryset.filter(vaseID=vaseID)
+            vaseID = self.request.query_params.get('vaseID')
+        subject = self.request.query_params.get('subject')
+        if subject is not None:
+            queryset = queryset.filter(subject__icontains=subject) #return all records that have subject 'LIKE' user input subject
         return queryset 
 
 #API view to retreive the plateRef using the vase_id passed as a URL parameter 
@@ -94,6 +91,34 @@ class GetPlate(generics.ListAPIView):
         if plateRef is not None:
             queryset = queryset.filter(plateRef=plateRef)
         return queryset
+
+#API views to return list of names for facted search
+@csrf_exempt
+def getShape(request,id=0):
+    if request.method=='GET': #read-only from table
+        shape = Shape.objects.all()
+        serializer_shape = ShapeSerializer(shape, many=True)
+        return JsonResponse(serializer_shape.data, safe=False)
+@csrf_exempt
+def getArtist(request,id=0):
+    if request.method=='GET': #read-only from table
+        shape = Artist.objects.all()
+        serializer_artist = ArtistSerializer(shape, many=True)
+        return JsonResponse(serializer_artist.data, safe=False)
+@csrf_exempt
+def getProvenance(request,id=0):
+    if request.method=='GET': #read-only from table
+        provenance = Provenance.objects.all()
+        serializer_provenance = ProvenanceSerializer(provenance, many=True)
+        return JsonResponse(serializer_provenance.data, safe=False)
+
+@csrf_exempt
+def getCollection(request,id=0):
+    if request.method=='GET': #read-only from table
+        collection = Collection.objects.all()
+        serializer_collection = CollectionSerializer(collection, many=True)
+        return JsonResponse(serializer_collection.data, safe=False)
+
 
 
 def main(request):

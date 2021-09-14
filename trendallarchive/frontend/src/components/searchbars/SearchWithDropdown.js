@@ -10,7 +10,97 @@ import {
 } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 
+<<<<<<< HEAD
 //Style for the Basic Search Bar Components.
+=======
+const fields = [
+    {
+        value: 'VaseID',
+        label: 'vaseID',
+      },
+      {
+        value: 'Shape',
+        label: 'Shape',
+      },
+      {
+        value: 'Technique',
+        label: 'Technique',
+      },
+      {
+        value: 'Fabric',
+        label: 'Fabric',
+      },
+      {
+        value: 'Artist',
+        label: 'Artist',
+      },
+      {
+        value: 'Inscription',
+        label: 'Inscription',
+      },
+      {
+        value: 'Subject',
+        label: 'Subject',
+      },
+      {
+        value: 'Publication',
+        label: 'Publication',
+      },
+      {
+        value: 'Collection',
+        label: 'Collection',
+      },
+];
+
+const useDropdownStyles = makeStyles((theme) => ({
+    root: {
+      '& .MuiTextField-root': {
+        display: 'flex',
+        marginTop: '0px',
+        textIndent: 15,
+        height: 55,
+        width: '20ch',
+        justifyContent: 'center',
+        alignContent: 'center',
+        borderRadius: '10px 0px 0px 10px',
+        backgroundColor: '#F6E7CB',
+        '&:hover': {
+          backgroundColor: '#EBD3A5',
+        },
+      },
+    },
+}));
+  
+const MultilineTextFields = () => {
+    const classes = useDropdownStyles();
+    const [field, setField] = React.useState('VaseID');
+  
+    const handleChange = (event) => {
+      setField(event.target.value);
+    };
+  
+    return (
+      <form className={classes.root} noValidate autoComplete="off">
+        <div>
+          <TextField
+            id="outlined-select-field"
+            select
+            value={field}
+            onChange={handleChange}
+            InputProps={{ disableUnderline: true }}
+          >
+            {fields.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          </div>
+      </form>
+    );
+}
+
+>>>>>>> 09cb7cb02642198260ba6a6fc15948514cce0760
 const useSearchStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',

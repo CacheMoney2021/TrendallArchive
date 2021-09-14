@@ -59,7 +59,7 @@ const getImg = (vaseID)=>{
 }
 
 const images = [
-<img src={`https://trendallplates.blob.core.windows.net/images/${getImg}`}/>//plateRef is returning as undefined
+<img src={`https://trendallplates.blob.core.windows.net/images/${getImg.plateRef}.png`}/>//plateRef is returning as undefined
 ];
 
 class Gallery extends React.Component {
