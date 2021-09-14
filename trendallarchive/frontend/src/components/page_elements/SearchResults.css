@@ -38,7 +38,7 @@
     
     margin-left: 35px;
     */
-    margin: 50px;
+    margin: 30px 50px 30px 50px;
     background: var(--bg);
     font-family: sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -88,6 +88,7 @@
     padding: 0px 10px 15px 10px;
     color: #54453B;
     overflow: visible;
+    height: 80px;
 }
 
 .card-list li {

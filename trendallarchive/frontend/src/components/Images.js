@@ -3,11 +3,11 @@ import axios from 'axios';
 import styled from 'styled-components';
 
 const VaseTitle = styled.div`
-font-family: 'Roboto', sans-serif;
-font-size: 40px;
-font-weight: 400;
-line-height:2.5em;
-color: #3F342C;
+    font-family: 'Roboto', sans-serif;
+    font-size: 40px;
+    font-weight: 400;
+    line-height:2.5em;
+    color: #3F342C;
 `
 
 const AttributeTitle = styled.div`

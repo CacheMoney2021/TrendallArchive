@@ -29,6 +29,7 @@ const FormDiv = styled.div`
 const VaseImg = (props) => {
   return <img src={props.name} width="500px" height="auto"/>; 
 }
+
 const urlParams = new URLSearchParams(window.location.search);
 const vaseID = urlParams.get('vaseID');
 console.log(vaseID);

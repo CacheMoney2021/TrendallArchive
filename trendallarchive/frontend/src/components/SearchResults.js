@@ -6,8 +6,11 @@ import "./page_elements/SearchResults.css";
 const SearchResults = () => {
   const [Data, setData]=useState([])
 
+  const urlPath = window.location.href;
+  const pathname = urlPath.replace("http://127.0.0.1:8000/search/", "");
+
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/searchresults/')
+    axios.get(`http://127.0.0.1:8000/api/search/${pathname}`)
         .then((res) => {
             console.log(res.data)
             setData(res.data)
@@ -25,7 +28,6 @@ const SearchResults = () => {
                         <a href ={`http://127.0.0.1:8000/viewvase/?vaseID=${item.vaseID}`} text-decoration="none">
                         <article className="card" key={item.vaseID}>
                             <div className="card-image">
-
                                 <img src={"https://trendallplates.blob.core.windows.net/images/image2.png"} alt={item.vaseID}/>
                             </div>
 
@@ -34,12 +36,11 @@ const SearchResults = () => {
                                     <h2 className="card-name">RVP nos. 1/{item.vaseID}</h2>
                                 </li>
                                 <li>
-                                    [Current Collection, Inventory Number]
+                                    {item.collection_name}, Inventory Number
                                 </li>
                             </div>
                         </article>
                         </a>
-
                     </li>
                 ))}
             </ul>                

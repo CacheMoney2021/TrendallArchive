@@ -35,6 +35,7 @@ const FormDiv = styled.div`
 const urlParams = new URLSearchParams(window.location.search);
 const vaseID = urlParams.get('vaseID');
 console.log(vaseID);
+
 //function to call and consume the API
 const Vase=()=>{
     

@@ -19,3 +19,12 @@ export const Footer = styled.div`
     background: #D4422F;
     bottom: 0px;
 `
+
+//Template for 'Forms' like the Advanced Search Form
+export const FormDiv = styled.div`
+    width: 35%;
+    left: 0;
+    margin-left: 100px;
+    margin-bottom:15px;
+    padding: 45px;
+`

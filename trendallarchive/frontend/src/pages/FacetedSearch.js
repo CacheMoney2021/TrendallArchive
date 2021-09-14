@@ -7,7 +7,6 @@ import SearchResults from "../components/SearchResults";
 const FormDiv = styled.div`
     width: 250px;
     height: 100%;
-    position: fixed;
     left: 0;
     padding: 45px;
     margin-top: 5px;
