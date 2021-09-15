@@ -10,6 +10,9 @@ from .models import Vase, Plate, Artist, Collection, Shape, Provenance
 from rest_framework import generics
 from rest_framework import filters
 
+from django.views.decorators.cache import never_cache
+from django.views.generic import TemplateView
+
 
 # #Working API that returns all vase info. (vase.js only showing vase[0])
 # @csrf_exempt
@@ -123,3 +126,5 @@ def getCollection(request,id=0):
 
 def main(request):
     return HttpResponse("Hello")
+
+index = never_cache(TemplateView.as_view(template_name='index.html'))
