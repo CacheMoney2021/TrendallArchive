@@ -76,7 +76,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'trendallarchive.wsgi.application'
+WSGI_APPLICATION = 'trendallarchive/trendallarchive.wsgi.application'
 
 
 # Database
