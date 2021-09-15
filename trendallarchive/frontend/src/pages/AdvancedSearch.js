@@ -126,7 +126,7 @@ const AdvancedForm = () => {
   return (
     <FormDiv>
       <AdvancedSearchTitle>Advanced Search</AdvancedSearchTitle>
-      <FieldSearch title="Vase Number" placeholder="Type Vase Number" inputProps="{ 'aria-label': 'vaseID' }"/>
+      <FieldSearch title="Vase Number" placeholder="Type Vase Reference Number" inputProps="{ 'aria-label': 'vaseRef' }"/>
       <FieldSearch title="Fabric" placeholder="Enter Fabric Name" inputProps="{ 'aria-label': 'fabric' }"/>
       <FieldSearch title="Technique" placeholder="Enter Technique Name" inputProps="{ 'aria-label': 'technique' }"/>
       <FieldSearch title="Shape" placeholder="Enter Shape Name" inputProps="{ 'aria-label': 'shape' }"/>

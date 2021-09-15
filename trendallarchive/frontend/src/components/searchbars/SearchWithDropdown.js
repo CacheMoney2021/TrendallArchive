@@ -11,8 +11,8 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const fields = [
     {
-        value: 'VaseID',
-        label: 'vaseID',
+        value: 'VaseRef',
+        label: 'vaseRef',
       },
       {
         value: 'Shape',
@@ -69,7 +69,7 @@ const useDropdownStyles = makeStyles((theme) => ({
   
 const MultilineTextFields = () => {
     const classes = useDropdownStyles();
-    const [field, setField] = React.useState('VaseID');
+    const [field, setField] = React.useState('VaseRef');
   
     const handleChange = (event) => {
       setField(event.target.value);

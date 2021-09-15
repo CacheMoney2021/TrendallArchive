@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'trendallarchive.wsgi.application'
 DATABASES = {
      'default': {
          'ENGINE': 'sql_server.pyodbc', 
-         'NAME': 'trenddb',
+         'NAME': 'trendalld',
          'USER': 'trenadmin',
          'PASSWORD': 'Latrobe!',
          'HOST': 'mysqlserver9879.database.windows.net',
@@ -97,14 +97,6 @@ DATABASES = {
 REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend']
 }
-#connection string. possibly need this in future. unsure.
-#  
-# server = 'mysqlserver9879.database.windows.net'
-# database = 'trendalldb'
-# username = 'trenadmin'
-# password = 'Latrobe!'
-# cnxn = pyodbc.connect('DRIVER={ODBC Driver 17 for SQL Server};SERVER=tcp'+server+';DATABASE='+database+';UID='+username+';PWD='+ password)
-# cursor = cnxn.cursor()
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators

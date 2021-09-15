@@ -82,16 +82,16 @@ const VaseImg = (props) => {
   return <img src={props.name} width="500px" height="auto"/>; 
 }
 const urlParams = new URLSearchParams(window.location.search);
-const vaseID = urlParams.get('vaseID');
-console.log(vaseID);
+const vaseRef = urlParams.get('vaseRef');
+console.log(vaseRef);
 
 
-const getImg = (vaseID)=>{
+const getImg = (vaseRef)=>{
   const [Data,setData]=useState({
       plateRef:''
   })
   useEffect(()=>{
-    axios.get(`http://127.0.0.1:8000/api/getplate/?vaseID=${vaseID}`)//get the selected vase using the vaseID passed through the URL
+    axios.get(`http://127.0.0.1:8000/api/getplate/?vaseRed=${vaseRef}`)//get the selected vase using the vaseID passed through the URL
         .then(res=>{
             console.log('Response from main API: ',res) //printing the response to the console
             let plateData=res.data[0]; //add data to vaseData, then assign into each variable

@@ -22,19 +22,19 @@ const SearchResults = () => {
             <ul className="card-grid">
                 {Data.map((item) => (
                     <li>
-                        <a href ={`http://127.0.0.1:8000/viewvase/?vaseID=${item.vaseID}`} text-decoration="none">
-                        <article className="card" key={item.vaseID}>
+                        <a href ={`http://127.0.0.1:8000/viewvase/?vaseRef=${item.vaseRef}`} text-decoration="none">
+                        <article className="card" key={item.vaseRef}>
                             <div className="card-image">
 
-                                <img src={"https://trendallplates.blob.core.windows.net/images/image2.png"} alt={item.vaseID}/>
+                                <img src={"https://trendallplates.blob.core.windows.net/images/image2.png"} alt={item.vaseRef}/>
                             </div>
 
                             <div className="card-content">
                                 <li>
-                                    <h2 className="card-name">RVP nos. 1/{item.vaseID}</h2>
+                                    <h2 className="card-name">RVP nos. 1/{item.vaseRef}</h2>
                                 </li>
                                 <li>
-                                    [Current Collection, Inventory Number]
+                                    [{item.collectionName}]
                                 </li>
                             </div>
                         </article>
