@@ -1,1 +1,1 @@
-web: gunicorn trendallarchive trendallarchive.wsgi --log-file-
+web: gunicorn trendallarchive trendallarchive.wsgi
