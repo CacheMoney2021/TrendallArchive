@@ -1,2 +1,2 @@
 
-web: gunicorn trendallarchive.wsgi
+web: gunicorn trendallarchive trendallarchive.wsgi
