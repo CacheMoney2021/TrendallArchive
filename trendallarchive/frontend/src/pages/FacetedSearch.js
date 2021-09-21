@@ -26,11 +26,10 @@ export default class FacetedSearch extends React.Component {
         <div>
          <SearchPageHeader/>
             <PageContainer>
-              <FormDiv/>
               <SearchResults/>
             </PageContainer>
           <Footer/>
         </div>
       ); 
     }
-  }
+}

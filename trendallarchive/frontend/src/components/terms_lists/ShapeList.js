@@ -1,6 +1,6 @@
 import React, { useEffect,useState } from "react";
 import axios from 'axios';
-import "./SearchResults.css";
+import "../page_elements/SearchResults.css";
 
 //both search with drop down and advanced search are linked, just need to pass data through URL. 
 const ShapeList = () => {

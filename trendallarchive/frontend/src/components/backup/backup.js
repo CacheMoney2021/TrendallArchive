@@ -4,7 +4,7 @@ import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import styled from 'styled-components';
 import "./VaseGallery.css";
-import BackBtn from './buttons/BackBtn';
+import BackBtn from '../buttons/BackBtn';
 import BannerVaseImage from '../components/images/basicsearchimage.png';
 import Images from "./Images.js";
 

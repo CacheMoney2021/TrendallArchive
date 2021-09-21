@@ -1,21 +1,26 @@
 import React, { useEffect,useState } from "react";
 import axios from 'axios';
-import "./SearchResults.css";
+import "./page_elements/SearchResults.css";
+
+
 
 //both search with drop down and advanced search are linked, just need to pass data through URL. 
 const SearchResults = () => {
     const [Data, setData]=useState([])
 
-  useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/searchresults/')
-        .then((res) => {
-            console.log(res.data)
-            setData(res.data)
-        })
-        .catch((err) => {
-            console.log(err);
-        })
-  },[])
+    const urlPath = window.location.href;
+    const pathname = urlPath.replace("http://127.0.0.1:8000/search/", "");
+  
+    useEffect(() => {
+      axios.get(`http://127.0.0.1:8000/api/searchresults/${pathname}`)
+          .then((res) => {
+              console.log(res.data)
+              setData(res.data)
+          })
+          .catch((err) => {
+              console.log(err);
+          })
+    },[])
 
     return (
         <div className="wrapper">
@@ -31,7 +36,7 @@ const SearchResults = () => {
 
                             <div className="card-content">
                                 <li>
-                                    <h2 className="card-name">RVP nos. 1/{item.vaseRef}</h2>
+                                    <h2 className="card-name">RVP nos. {item.vaseRef}</h2>
                                 </li>
                                 <li>
                                     [{item.collectionName}]

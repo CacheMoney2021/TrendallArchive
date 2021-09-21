@@ -3,6 +3,7 @@ import { HomeHeader, NavBar, NavLi } from './Header.elements';
 import { ReactComponent as LatrobeLogo } from '../images/latrobelogo.svg';
 import BookmarkIcon from '../images/bookmarkicon_brown.png';
 import UserIcon from '../images/usericon_brown.png';
+import { Link } from 'react-router-dom';
 
 //A function to take in the name of an imported image and return it as a styled image
 function Icon(props){
@@ -17,8 +18,7 @@ const HomepageHeader = () => {
       <NavBar>
         <NavLi>About</NavLi>
         <NavLi>Contact</NavLi>
-        <NavLi><Icon name={BookmarkIcon}/></NavLi>
-        <NavLi><Icon name={UserIcon}/></NavLi>
+        <NavLi><Icon/></NavLi>
       </NavBar>
     </HomeHeader>
   )

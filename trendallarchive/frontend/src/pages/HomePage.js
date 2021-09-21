@@ -6,7 +6,6 @@ import { PageContainer, Footer } from "../components/page_elements/Div.elements"
 import BannerVaseImage from '../components/images/basicsearchimage.png';
 import GoldBtn from "../components/buttons/GoldBtn";
 
-
 const BasicSearchBanner = styled.div`
     width: 100%;
     height: 350px;
@@ -36,7 +35,7 @@ const SearchBarDiv = styled.div`
 
 const AdvancedSearchDiv = styled.div`
     display: flex;
-    padding-left: 1%;
+    padding-left: 1.5%;
 `
 
 const SearchBarComps = () => {
@@ -52,21 +51,20 @@ const SearchBarComps = () => {
 
 //Render the HomePage Component.
 export default class HomePage extends React.Component {
-    constructor(props) {
-      super(props);
-    }
+  constructor(props) {
+    super(props);
+   }
   
-    render() {
-
-      return(
-        <div>
-          <HomepageHeader/>
-          <BasicSearchBanner>
+ render() {
+    return(
+      <div>
+        <HomepageHeader/>
+         <BasicSearchBanner>
             <TrendallTitle>A.D. Trendall<br/>Research Centre</TrendallTitle>
             <SearchBarComps/>
-          </BasicSearchBanner>
-          <Footer/>
-        </div>
-      ); 
-    }
+         </BasicSearchBanner>
+        <Footer/>
+      </div>
+    ); 
   }
+}
