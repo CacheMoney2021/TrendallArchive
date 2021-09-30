@@ -18,21 +18,8 @@ const ShapeList = () => {
   },[])
 
     return (
-        <div className="wrapper">
-            <ul>
-                {Data.map((item) => (
-                    <li>
-                        <article key={item.shape_id}> {/*not sure if this is necessary*/}
-                            <div>
-                                <li>
-                                    <h2>{item.shapeName}</h2>
-                                </li>
-                            </div>
-                        </article>
-
-                    </li>
-                ))}
-            </ul>                
+        <div>
+                {item.shapeName}           
         </div>
     );
 }

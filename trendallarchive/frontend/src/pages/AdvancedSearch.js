@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
-import { makeStyles } from '@material-ui/core/styles';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { 
   Paper,
   Input,
   IconButton,
-  Radio,
-  RadioGroup,
-  FormControlLabel,
 } from '@material-ui/core';
 import { PageContainer, Footer, FormDiv } from "../components/page_elements/Div.elements";
 import SearchPageHeader from "../components/page_elements/SearchPageHeader";
 import InfoIcon from '../components/images/infoicon_brown.png';
 import GoldBtn from "../components/buttons/GoldBtn";
-import ShapeList from "../components/terms_lists/ShapeList";
 
 const TermsDiv = styled(FormDiv)`
     background-color: white;
@@ -49,20 +44,6 @@ const Terms = styled(FieldTitle)`
     margin-top: 10px;
 `
 
-const FieldTitleImages = styled(FieldTitle)`
-    width: 26.5%;
-`
-
-const GreenRadioBtn = withStyles({
-  root: {
-    color: '#909090',
-    '&$checked': {
-      color: '#3BA593',
-    },
-  },
-  checked: {},
-})((props) => <Radio {...props} />);
-
 const useSearchStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -83,6 +64,13 @@ const useSearchStyles = makeStyles((theme) => ({
   }  
 }));
 
+const TermsDictionary = () => {
+  return (
+    <TermsDiv>
+      <TermsTitle fontStyle="bold">Shape Terms</TermsTitle>
+    </TermsDiv>
+  )
+}
 
 const FieldSearch = (props) => {
   const classes = useSearchStyles();
@@ -114,13 +102,6 @@ const FieldSearch = (props) => {
 
 //Advanced Search Form Component. Includes 'Search' Button.
 const AdvancedForm = () => {
-  const classes = useSearchStyles();
-
-  const [imgOption, setimgOption] = React.useState('any');
-  const handleRadioBtn = (event) => {
-    setimgOption(event.target.value);
-  };
-
   const [state, setState] = React.useState({
     ref: "",
     shape: "",
@@ -153,60 +134,12 @@ const AdvancedForm = () => {
       <FieldSearch name= 'pub'     value={state.pub}     onChange={handleChange}  placeholder= "Enter Publication Name"   title= 'Publication Name' />
       <FieldSearch name= 'col'     value={state.col}     onChange={handleChange}  placeholder= "Enter Collection Name"    title= 'Collection Name' />
       <FieldSearch name= 'prov'    value={state.prov}    onChange={handleChange}  placeholder= "Enter Provenance Name"    title= 'Provenance' />
-    
-
-
-      {/*Component that gives user the option: 'Has Images? Any/Y/N'.*/}
-      {/* 
-      <Paper component="form" elevation={0} className={classes.root}>
-        <FieldTitleImages>Has Images?</FieldTitleImages>
-        <RadioGroup className={classes.radioGroup} row aria-label="imagequery" name="imagequery" value={value} onChange={handleRadioBtn}>
-          <FormControlLabel value="any" control={<GreenRadioBtn />} label="Any" />
-          <FormControlLabel value="yes" control={<GreenRadioBtn />} label="Yes" />
-          <FormControlLabel value="no" control={<GreenRadioBtn />} label="No" />
-        </RadioGroup>
-      </Paper>
-      */}
 
       {/*Search Button*/}
       <br/><GoldBtn width='100px' name="Search" 
-      link={`/search/?vaseRef=${state.ref}&shapeName=${state.shape}&fabric=${state.fabric}&artistName=${state.artist}&subject=${state.subject}&fpublications=${state.pub}&collectionName=${state.col}&provenanceName=${state.prov}`}/> 
+      link={`/search/?vaseRef=${state.ref}&shapeName=${state.shape}&fabric=${state.fabric}&subject=${state.subject}&publications=${state.pub}&collectionName=${state.col}&provenanceName=${state.prov}`}/> 
     </FormDiv>
   );
-}
-
-const TermsDictionary = () => {
-
-  return (
-    <TermsDiv>
-      <TermsTitle fontStyle="bold">Shape Terms</TermsTitle>
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms>
-      <Terms>Bell-krater</Terms> 
-      <Terms>Bell-krater</Terms>
-      <ShapeList/>
-    </TermsDiv>
-  )
 }
 
 //Render the Advanced Search Page.

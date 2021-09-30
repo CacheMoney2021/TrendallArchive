@@ -82,7 +82,7 @@ WSGI_APPLICATION = 'trendallarchive.wsgi.application'
 DATABASES = {
      'default': {
          'ENGINE': 'sql_server.pyodbc', 
-         'NAME': 'trendalld',
+         'NAME': 'trendalldb',
          'USER': 'trenadmin',
          'PASSWORD': 'Latrobe!',
          'HOST': 'mysqlserver9879.database.windows.net',

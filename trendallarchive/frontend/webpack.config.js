@@ -29,11 +29,15 @@ module.exports = {
       },
       {
         test: /\.svg$/,
-        use: ['@svgr/webpack', 'url-loader'],
+        use: ['@svgr/webpack', 'svg-url-loader'],
       },
       {
         test: /\.(jpe?g|gif|png|svg)$/i,
         use: ['url-loader'],
+      },
+      {
+        test: /\.txt$/i,
+        use: 'raw-loader',
       },
     ],
   },
