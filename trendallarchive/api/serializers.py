@@ -1,6 +1,11 @@
 from rest_framework import serializers
-from .models import Vase
+from .models import Vase, Plate
 
+class PlateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Plate
+        fields = '__all__'
+        
 # vase serializer 
 class VaseSerializer(serializers.ModelSerializer):
     class Meta:

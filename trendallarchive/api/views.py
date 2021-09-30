@@ -5,30 +5,13 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http.response import HttpResponse, JsonResponse
 from rest_framework.response import Response
 from rest_framework.serializers import Serializer
-from .serializers import VaseSerializer
-from .models import Vase
+from .serializers import VaseSerializer, PlateSerializer
+from .models import Vase, Plate
 from rest_framework import generics
 from rest_framework import filters
 
 
-# #Working API that returns all vase info. (vase.js only showing vase[0])
-# @csrf_exempt
-# def listVaseAPI(request,id=0):
-#     if request.method=='GET': #read-only from table
-#         vase = Vase.objects.all()
-#         serializer_vase = VaseSerializer(vase, many=True)
-#         return JsonResponse(serializer_vase.data, safe=False) 
-
-# API view to get a vase with a vaseID passed through the URL
-# class GetVase(generics.ListAPIView):
-#     serializer_class = VaseSerializer 
-#     def get_queryset(self):
-#         queryset = Vase.objects.all()
-#         vaseRef = self.request.query_params.get('vaseRef')
-#         if vaseRef is not None:
-#             queryset = queryset.filter(vaseRef=vaseRef)
-#         return queryset
-
+#API view to retreive all attributes of a vase with given a vaseRef
 class GetTheVase(generics.ListAPIView):
     serializer_class = VaseSerializer
     def get_queryset(self):
@@ -42,55 +25,96 @@ class GetTheVase(generics.ListAPIView):
             print(e)
             pass
 
-# #API view for Basic Search and Advanced Search, takes in a vase paramter passed through URL.
+# #API view for Basic Search and Advanced Search, takes in a vase paramter (zero, 1 or many) passed through URL.
 class FilterVases(generics.ListAPIView):
     serializer_class = VaseSerializer 
     def get_queryset(self):
         queryset = Vase.objects.all()
-        shapeName = self.request.query_params.get('shapeName')
+        shapeName = self.request.query_params.get('shapeName') #get shapeName parameter from URL 
         if shapeName is not None:
             try:
-                queryset = queryset.filter(shapeName__icontains=shapeName)
+                queryset = queryset.filter(shapeName__icontains=shapeName) #if shapeName in in database matches (full/partial) the searched dshapeName add it to queryset
             except Exception as e:
-                print(e)
-        collectionName = self.request.query_params.get('collectionName')
+                print(e) # print any exceptions to log for debugging
+        collectionName = self.request.query_params.get('collectionName')#get collectionName parameter from URL
         if collectionName is not None:
             try:
-                queryset = queryset.filter(collectionName__icontains=collectionName)
+                queryset = queryset.filter(collectionName__icontains=collectionName)#if collectionName in in database matches (full/partial) the searched collectionName add it to queryset
+            except Exception as e:
+                print(e) #
+        prevColl = self.request.query_params.get('previousCollection') #get previousCollection parameter from URL
+        if prevColl is not None:
+            try:
+                queryset = queryset.filter(prevColl__icontains=prevColl) #if previousCollection in in database matches (full/partial) the searched previousCollection, add it to queryset
             except Exception as e:
                 print(e)
-        artistName = self.request.query_params.get('artistName')
+        artistName = self.request.query_params.get('artistName') #get artistName parameter from URL
         if artistName is not None:
             try:
-                queryset = queryset.filter(artistName__icontains=artistName)
+                queryset = queryset.filter(artistName__icontains=artistName)#if artistName in in database matches (full/partial) the searched artistName, add it to queryset
             except Exception as e:
                 print(e)
                 pass
-        provenanceName = self.request.query_params.get('provenanceName')
+        provenanceName = self.request.query_params.get('provenanceName') #get provenanceName parameter from URL
         if provenanceName is not None:
             try:
-                queryset = queryset.filter(provenanceName__icontains=provenanceName)
+                queryset = queryset.filter(provenanceName__icontains=provenanceName)#if provenanceName in in database matches (full/partial) the searched proveanceName, add it to queryset
             except Exception as e:
                 print(e)
                 pass
-        publications = self.request.query_params.get('publications')
+        publications = self.request.query_params.get('publications') #get publications parameter from URL
         if publications is not None:
             try:
-                queryset = queryset.filter(publications__icontains=publications)
+                queryset = queryset.filter(publications__icontains=publications)#if publications in in database matches (full/partial) the searched publications, add it to queryset
             except Exception as e:
                 print(e)
                 pass    
-        fabric = self.request.query_params.get('fabric')
+        fabric = self.request.query_params.get('fabric') #get fabric parameter from URL
         if fabric is not None:
-            queryset = queryset.filter(fabric__icontains=fabric)
-        vaseRef = self.request.query_params.get('vaseRef')
+            try:
+                queryset = queryset.filter(fabric__icontains=fabric)#if fabric in in database matches (full/partial) the searched fabric, add it to queryset
+            except Exception as e:
+                print(e)
+                pass
+        vaseRef = self.request.query_params.get('vaseRef') #get vaseRef parameter from URL
         if vaseRef is not None:
-            queryset = queryset.filter(vaseRef__icontains=vaseRef)
-            vaseID = self.request.query_params.get('vaseRef')
-        subject = self.request.query_params.get('subject')
+            try:
+                queryset = queryset.filter(vaseRef__icontains=vaseRef) #if vaseRef in in database matches matches (full/partial) the searched vaseRef, add it to queryset
+            except Exception as e:
+                print(e)
+                pass
+        subject = self.request.query_params.get('subject') #get subject parameter from URL
         if subject is not None:
-            queryset = queryset.filter(subject__icontains=subject) #return all records that have subject 'LIKE' user input subject
+            try:
+                queryset = queryset.filter(subject__icontains=subject) #if subjectin in database matches (full/partial) the searched subject, add it to queryset
+            except Exception as e:
+                print(e)
         return queryset 
+
+
+#API view to retreive the plateRef using the vase_id passed as a URL parameter 
+class GetPlate(generics.ListAPIView):
+    serializer_class = PlateSerializer 
+    def get_queryset(self):
+        queryset = Plate.objects.all()
+        vase = self.request.query_params.get('vase')
+        if vase is not None:
+            try:
+                queryset = queryset.filter(vase=vase)
+            except Exception as e:
+                print(e)
+        return queryset
+
+
+# API view to get a vase with a vaseID passed through the URL
+# class GetVase(generics.ListAPIView):
+#     serializer_class = VaseSerializer 
+#     def get_queryset(self):
+#         queryset = Vase.objects.all()
+#         vaseRef = self.request.query_params.get('vaseRef')
+#         if vaseRef is not None:
+#             queryset = queryset.filter(vaseRef=vaseRef)
+#         return queryset
 
 # class FilterVases(generics.ListAPIView):
 #     serializer_class = VaseSerializer 
@@ -107,45 +131,6 @@ class FilterVases(generics.ListAPIView):
 #             queryset = queryset.filter(subject__icontains=subject) 
 #         return queryset 
 
-#API view to retreive the plateRef using the vase_id passed as a URL parameter 
-# class GetPlate(generics.ListAPIView):
-#     serializer_class = PlateSerializer 
-#     def get_queryset(self):
-#         queryset = Plate.objects.all()
-#         vaseRef = self.request.query_params.get('vaseRef')
-#         plateRef = self.request.query_params.get('plateRef')
-#         if vaseRef is not None:
-#             queryset = queryset.filter(vaseRef=vaseRef)
-#         if plateRef is not None:
-#             queryset = queryset.filter(plateRef=plateRef)
-#         return queryset
-
-# #API views to return list of names for facted search
-# @csrf_exempt
-# def getShape(request,id=0):
-#     if request.method=='GET': #read-only from table
-#         shape = Shape.objects.all()
-#         serializer_shape = ShapeSerializer(shape, many=True)
-#         return JsonResponse(serializer_shape.data, safe=False)
-# @csrf_exempt
-# def getArtist(request,id=0):
-#     if request.method=='GET': #read-only from table
-#         shape = Artist.objects.all()
-#         serializer_artist = ArtistSerializer(shape, many=True)
-#         return JsonResponse(serializer_artist.data, safe=False)
-# @csrf_exempt
-# def getProvenance(request,id=0):
-#     if request.method=='GET': #read-only from table
-#         provenance = Provenance.objects.all()
-#         serializer_provenance = ProvenanceSerializer(provenance, many=True)
-#         return JsonResponse(serializer_provenance.data, safe=False)
-
-# @csrf_exempt
-# def getCollection(request,id=0):
-#     if request.method=='GET': #read-only from table
-#         collection = Collection.objects.all()
-#         serializer_collection = CollectionSerializer(collection, many=True)
-#         return JsonResponse(serializer_collection.data, safe=False)
 
 
 
