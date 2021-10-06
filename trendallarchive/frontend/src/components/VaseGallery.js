@@ -38,7 +38,7 @@ const getImg = (vaseRef)=>{
       plateRef:''
   })
   useEffect(()=>{
-    axios.get(`http://127.0.0.1:8000/api/getplate/?vaseRef=${vaseRef}`)//get the selected vase using the vaseID passed through the URL
+    axios.get(`http://127.0.0.1:8000/api/getplate/?vase=${vaseRef}`)//get the selected vase using the vaseID passed through the URL
         .then(res=>{
             console.log('Response from main API: ',res) //printing the response to the console
             let plateData=res.data[0]; //add data to vaseData, then assign into each variable
@@ -48,6 +48,7 @@ const getImg = (vaseRef)=>{
             console.log(err);
         })
       console.log(vaseRef)
+      console.log(plateRef)
   },[])
   return(
     <>
@@ -57,11 +58,10 @@ const getImg = (vaseRef)=>{
 }
 
 const images = [
+  //<img src={`https://trendallplates.blob.core.windows.net/images/${plateRef}.png`}/>//plateRef is returning as undefined
   <img src={`https://trendallplates.blob.core.windows.net/images/image2.png`}/>,
   <img src={`https://trendallplates.blob.core.windows.net/images/image2.png`}/>,
-  <img src={`https://trendallplates.blob.core.windows.net/images/image2.png`}/>,
-  <img src={`https://trendallplates.blob.core.windows.net/images/image2.png`}/>,
-  <img src={`https://trendallplates.blob.core.windows.net/images/${getImg.plateRef}.png`}/>//plateRef is returning as undefined
+  <img src={`https://trendallplates.blob.core.windows.net/images/image2.png`}/>
 ];
 
 class Gallery extends React.Component {
@@ -72,7 +72,6 @@ class Gallery extends React.Component {
       </Wrapper>
     ))
   };
-
   responsive = {
     0: { items: 1 },
     1024: { items: 1 }

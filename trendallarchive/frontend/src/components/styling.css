@@ -4,7 +4,7 @@
 .headingOdd {font-family: 'Roboto', sans-serif;
     font-size: 50px;
     font-weight: 900;
-    line-height: 2.5em;
+    line-height: 2em;
     color: #DAA844;
     padding: 0 3%;
     text-align: center;
@@ -17,7 +17,24 @@
     line-height: 2.5em;
     color: #d6341f;
     text-align:center;
-    padding: 4%;}
+    padding: 4%;
+}
+
+.contactInfo{
+    margin-top:10%;
+}
+
+.contactInfo p{
+    font-family: 'Roboto', sans-serif;
+    color: #3F342C;
+}
+
+#imageClass{
+    height: auto; 
+    width: auto; 
+    max-width: 400px; 
+    max-height: 400px;
+}
 
 p {
     font-family: 'Roboto', sans-serif;
@@ -34,9 +51,23 @@ p {
     align-items: center;
     gap: 80px; /* row-gap column gap */
 }
-
+.buttons {
+    width: 30%;
+    justify-content: center;
+    align-items: center;
+}
 a {
     text-decoration: none;
+}
+.welcomeDiv{
+    position:relative;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcomeDiv h3{
+    margin-top:5%;
 }
 
 h3{
@@ -84,7 +115,7 @@ h1{
 .vaseDiv tr{
     line-height: 1.5em;
 }
-.vaseDiv th{
+.vaseDiv, th{
     font-weight:500;
 
 }

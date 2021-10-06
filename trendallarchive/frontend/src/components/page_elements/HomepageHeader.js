@@ -35,7 +35,7 @@ const HomepageHeader = () => {
       </a>
       <NavBar>
         <NavLi><Link to= "/about/">About </Link></NavLi>
-        <NavLi>Contact</NavLi>
+        <NavLi><Link to = "/contact/">Contact</Link></NavLi>
         <NavLi><Icon/></NavLi>
       </NavBar>
     </HomeHeader>

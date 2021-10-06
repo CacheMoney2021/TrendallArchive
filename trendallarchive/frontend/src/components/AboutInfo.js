@@ -26,7 +26,6 @@ const AboutInfo=()=>{
     return(
         <>
         <Container>
-        <Div>
         <div className= "aboutInfo">
         <OddFold>
         <div className= "headingOdd"> ARTHUR TRENDALL</div>
@@ -34,6 +33,7 @@ const AboutInfo=()=>{
         </p>
         <p>His academic life was devoted primarily to the study of the red-figured vases produced in South Italy and Sicily during the Classical period. Decorated with scenes of myth or everyday life these vases, thousands of which are scattered in museums throughout the world, constitute a primary source for many aspects of Greek and indigenous culture in Italy. At the beginning of his career Trendall set himself the task of distinguishing the various local red-figure styles, and of attributing, through careful stylistic analysis, the vases to painters. That the basic classification has now been established, and we are able to appreciate the work of many individual painters, is largely the result of Trendall's unremitting scholarly activity over some 60 years.
         </p>
+        <img src= {Img} id= "imageClass"/>
         <div className= "buttonDivSm">
         <GoldBtn name = 'Learn more about Arthur Trendall' link = 'https://www.latrobe.edu.au/trendall/about' /> {/*button to link user to LTU page on Trendall*/}
         </div>
@@ -48,18 +48,7 @@ const AboutInfo=()=>{
         <GoldBtn name = 'Contact the A.D Trendall Research Centre' link = '/contact' /> {/*button to link user to contact page*/}
         </div>
         </EvenFold>
-        <OddFold>
-        <div className="headingOdd"> TRENDALL ARCHIVE</div>
-        <p>The Trendall Archive now holds more than 40,000 photographs, collected by Trendall for his research. This photographic archive is classified according to the painters identified by Trendall over his lifetime of study and is a unique research resource for Ancient Mediterranean pottery. The Archive is currently in the process of being digitised and stored in a database accessible online by the general public. The online database currently contains vases from 'Red-Figured Vases of Paestum'- Written by A.D Trendall. 
-        </p>
-        <h3> SEARCH THE ONLINE DATABASE: </h3>
-        <div className= "buttonDiv">
-        <GoldBtn name = 'Basic Search' link = '/' /> {/*button to link user basic search bar (home)*/}
-        <GoldBtn name = 'Advanced Search' link = '/advanced-search' /> {/*button to link user to advanced search*/}
         </div>
-        </OddFold>
-        </div>
-        </Div>
         </Container>
         </>
     )

@@ -30,7 +30,7 @@ const SearchPageHeader = () => {
       <NavBar>
         <NavLi><Link to="/"><Icon name={BackIcon}/></Link></NavLi> 
         <NavLi><Link to= "/about/">About</Link></NavLi>
-        <NavLi>Contact</NavLi>
+        <NavLi><Link to = "/contact/">Contact </Link></NavLi>
         <NavLi><Icon/></NavLi> 
       </NavBar>
     </SearchHeader>
