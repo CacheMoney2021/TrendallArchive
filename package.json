@@ -1,5 +1,8 @@
 {
   "devDependencies": {
     "raw-loader": "^4.0.2"
+  },
+  "dependencies": {
+    "react-embed": "^3.3.3"
   }
 }

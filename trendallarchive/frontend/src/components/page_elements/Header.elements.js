@@ -28,6 +28,7 @@ export const SearchHeader = styled(Header)`
     background-size: 225px; 
     position: absolute;
     color: white;
+    z-index: 1;
 `
 
 //A <ul> container for right aligned navigation with text links and icons.
