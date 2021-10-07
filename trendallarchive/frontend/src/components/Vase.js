@@ -64,17 +64,17 @@ const Vase=()=>{
             })
     },[])
 
-//return the vase into that was retrieved in the function
+//return the vase into that was retrieved in the function.
     return(
         <>
-
         
+              
         <FormDiv>
-           <VaseTitle>{Data.VaseRef}, {Data.Fabric}</VaseTitle> 
-           <Attribute><p>VASE NUMBER: {Data.VaseRef}</p></Attribute> 
-           <Attribute><p>Collection: {Data.Collection}</p></Attribute>
-           <Attribute><p>Publications: {Data.Publications}</p></Attribute>
-           <Attribute><p>Fabric: {Data.Fabric}</p></Attribute>
+            <VaseTitle>{Data.VaseRef}, {Data.Fabric}</VaseTitle> 
+            <Attribute><p>VASE NUMBER: {Data.VaseRef}</p></Attribute> 
+            <Attribute><p>Collection: {Data.Collection}</p></Attribute>
+            <Attribute><p>Publications: {Data.Publications}</p></Attribute>
+            <Attribute><p>Fabric: {Data.Fabric}</p></Attribute>
             <Attribute><p>Technique: {Data.Technique}</p></Attribute>
             <Attribute><p>Description: {Data.Subject}</p></Attribute>
             <Attribute><p>Artist: {Data.ArtistName}</p></Attribute>

@@ -10,12 +10,15 @@ import { PageContainer, Footer, FormDiv } from "../components/page_elements/Div.
 import SearchPageHeader from "../components/page_elements/SearchPageHeader";
 import InfoIcon from '../components/images/infoicon_brown.png';
 import GoldBtn from "../components/buttons/GoldBtn";
+import {ShapeList, ProvenanceList, CollectionList} from "../components/terms_lists/TermsList"
 
 const TermsDiv = styled(FormDiv)`
     background-color: white;
     margin-top: 50px;
-    height: 100%;
+    height: 700px;
     border-radius: 5px;
+    margin-bottom: 0px;
+    overflow: scroll;
 `
 
 const AdvancedSearchTitle = styled.div`
@@ -42,6 +45,7 @@ const Terms = styled(FieldTitle)`
     font-size: 16px;
     margin-bottom: 10px;
     margin-top: 10px;
+    width:100%;
 `
 
 const useSearchStyles = makeStyles((theme) => ({
@@ -56,18 +60,16 @@ const useSearchStyles = makeStyles((theme) => ({
   iconButton: {
     padding: 10,
     marginLeft: 5,
-  },
-  radioGroup: {
-    '& .MuiFormGroup-root': {
-      color: 'black',
-    },
-  }  
+  }
 }));
 
 const TermsDictionary = () => {
   return (
     <TermsDiv>
       <TermsTitle fontStyle="bold">Shape Terms</TermsTitle>
+      <Terms><ShapeList/></Terms>
+      <Terms><CollectionList/></Terms>
+      <Terms><ProvenanceList/></Terms>
     </TermsDiv>
   )
 }
@@ -92,7 +94,7 @@ const FieldSearch = (props) => {
         fullWidth  
       />
       
-      <IconButton type="submit" className={classes.iconButton} aria-label="search">
+      <IconButton type="submit" className={classes.iconButton} onClick={()=>{ alert('alert'); }}>
         <Icon name={InfoIcon}/>
       </IconButton>
       </Paper>
@@ -110,8 +112,39 @@ const AdvancedForm = () => {
     subject: "",
     pub: "",
     col: "",
-    prov: ""
+    prov: "",
   })
+
+  const UrlParam = () =>{
+    let param = "/search/?";
+
+    if(state.ref){
+      param = param + "&vaseRef=" + state.ref;
+    }
+    if(state.shape){
+      param = param + "&shapeName=" + state.shape;
+    }
+    if(state.fabric){
+      param = param + "&fabric=" + state.fabric;
+    }
+    if(state.artist){
+      param = param + "&artist=" + state.artist;
+    }
+    if(state.subject){
+      param = param + "&subject=" + state.subject;
+    }
+    if(state.pub){
+      param = param + "&publications=" + state.pub;
+    }
+    if(state.col){
+      param = param + "&collectionName=" + state.col;
+    }
+    if(state.prov){
+      param = param + "&provenanceName=" + state.prov;
+    }
+
+    return(param);
+  }
 
   function handleChange(event) {
     const value = event.target.value;
@@ -136,8 +169,7 @@ const AdvancedForm = () => {
       <FieldSearch name= 'prov'    value={state.prov}    onChange={handleChange}  placeholder= "Enter Provenance Name"    title= 'Provenance' />
 
       {/*Search Button*/}
-      <br/><GoldBtn width='100px' name="Search" 
-      link={`/search/?vaseRef=${state.ref}&shapeName=${state.shape}&fabric=${state.fabric}&subject=${state.subject}&publications=${state.pub}&collectionName=${state.col}&provenanceName=${state.prov}`}/> 
+      <br/><GoldBtn width='100%' name="Search" link={UrlParam}/>
     </FormDiv>
   );
 }
