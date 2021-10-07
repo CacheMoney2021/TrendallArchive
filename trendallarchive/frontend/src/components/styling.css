@@ -1,6 +1,12 @@
 .aboutInfo{
     margin-top:10%;
 }
+.divImage{
+    display: flex;
+    padding: 0 10% 0 10%;
+    align-items: center;
+    gap: 80px; 
+}
 .headingOdd {font-family: 'Roboto', sans-serif;
     font-size: 50px;
     font-weight: 900;
@@ -53,6 +59,7 @@ p {
 }
 .buttons {
     width: 30%;
+    position: relative;
     justify-content: center;
     align-items: center;
 }
@@ -61,7 +68,7 @@ a {
 }
 .welcomeDiv{
     position:relative;
-    width: 80%;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
