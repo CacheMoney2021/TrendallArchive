@@ -83,8 +83,6 @@ const Vase=()=>{
                 </tr>
             </table>
             </div>
-
-
         </FormDiv>
         </>
     )

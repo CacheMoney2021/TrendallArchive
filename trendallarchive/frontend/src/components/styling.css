@@ -116,9 +116,15 @@ h1{
     line-height: 1.5em;
 }
 .vaseDiv, th{
-    font-weight:500;
+    font-weight:300;
 
 }
 .vaseDiv td{
     padding-left: 3%;
+}
+#vaseImage {
+    height: auto; 
+    width: auto; 
+    max-width: 400px; 
+    max-height: 500px;
 }
