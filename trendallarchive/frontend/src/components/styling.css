@@ -1,6 +1,12 @@
 .aboutInfo{
     margin-top:10%;
 }
+.divImage{
+    display: flex;
+    padding: 0 10% 0 10%;
+    align-items: center;
+    gap: 80px; 
+}
 .headingOdd {font-family: 'Roboto', sans-serif;
     font-size: 50px;
     font-weight: 900;
