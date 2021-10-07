@@ -59,6 +59,7 @@ p {
 }
 .buttons {
     width: 30%;
+    position: relative;
     justify-content: center;
     align-items: center;
 }
@@ -67,7 +68,7 @@ a {
 }
 .welcomeDiv{
     position:relative;
-    width: 80%;
+    width: 100%;
     justify-content: center;
     align-items: center;
 }
