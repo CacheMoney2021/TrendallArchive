@@ -1,14 +1,9 @@
 from django.shortcuts import render
-from django.http import JsonResponse
-from django.shortcuts import render
-from django.views.decorators.csrf import csrf_exempt
-from django.http.response import HttpResponse, JsonResponse
-from rest_framework.response import Response
-from rest_framework.serializers import Serializer
+
+from django.http.response import HttpResponse
 from .serializers import VaseSerializer, PlateSerializer
 from .models import Vase, Plate
 from rest_framework import generics
-from rest_framework import filters
 
 
 #API view to retreive all attributes of a vase with given a vaseRef
@@ -104,35 +99,19 @@ class GetPlate(generics.ListAPIView):
             except Exception as e:
                 print(e)
         return queryset
-
-
-# API view to get a vase with a vaseID passed through the URL
-# class GetVase(generics.ListAPIView):
-#     serializer_class = VaseSerializer 
-#     def get_queryset(self):
-#         queryset = Vase.objects.all()
-#         vaseRef = self.request.query_params.get('vaseRef')
-#         if vaseRef is not None:
-#             queryset = queryset.filter(vaseRef=vaseRef)
-#         return queryset
-
-# class FilterVases(generics.ListAPIView):
-#     serializer_class = VaseSerializer 
-#     def get_queryset(self):
-#         queryset = Vase.objects.all()
-#         fabric = self.request.query_params.get('fabric')
-#         if fabric is not None:
-#             queryset = queryset.filter(fabric__icontains=fabric)
-#         vaseRef = self.request.query_params.get('vaseRef')
-#         if vaseRef is not None:
-#             queryset = queryset.filter(vaseRef=vaseRef)
-#         subject = self.request.query_params.get('subject')
-#         if subject is not None:
-#             queryset = queryset.filter(subject__icontains=subject) 
-#         return queryset 
-
-
-
+    # def getBlobs():
+    #     account_url = "https://trendallplates.blob.core.windows.net/"
+    #     service_client = BlobServiceClient(
+    #     account_url=account_url
+    #     )
+    #     blob_name = "P-1-1.png"
+    #     container_name= "images"
+    #     blob_url = f"{account_url}/{container_name}/{blob_name}"
+    #     blob_client = BlobClient.from_blob_url(
+    #         blob_url=blob_url
+    #     )
+    #     blob_download = blob_client.download_blob()
+    #     return blob_url
 
 def main(request):
     return HttpResponse("Hello")

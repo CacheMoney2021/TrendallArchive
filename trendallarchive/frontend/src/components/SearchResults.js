@@ -26,6 +26,7 @@ const SearchResults = () => {
         <div className="wrapper">
             <ul className="card-grid">
                 {Data.map((item) => (
+                    
                     <li>
                         <a href ={`http://127.0.0.1:8000/viewvase/?vaseRef=${item.vaseRef}`} text-decoration="none">
                         <article className="card" key={item.vaseRef}>
@@ -39,7 +40,7 @@ const SearchResults = () => {
                                     <h2 className="card-name">RVP nos. {item.vaseRef}</h2>
                                 </li>
                                 <li>
-                                    [{item.collectionName}]
+                                    [{item.collectionName ? item.collectionName : `Collection Not Found`}]
                                 </li>
                             </div>
                         </article>

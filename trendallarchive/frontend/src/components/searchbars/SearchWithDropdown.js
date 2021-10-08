@@ -84,6 +84,7 @@ const SearchWithDropdown = () => {
   ];
 
   return (
+    <>
     <Paper component="form" elevation={0} className={classes.root}>
 
         {/* Dropdown Fields*/}
@@ -100,15 +101,19 @@ const SearchWithDropdown = () => {
           className={classes.input}
           value={input}
           onChange={handleInput}
-          placeholder="Search the Trendall Archive in the selected field to the left..."
+          placeholder="Search the Trendall Archive in the left field..."
         />
 
-        {/* Basic Search Button */}
-        <IconButton type="submit" className={classes.iconButton} aria-label="search" href ={`http://127.0.0.1:8000/search/?${field}=${input}`}>
-          <SearchIcon/>
+        <IconButton type="submit" className={classes.iconButton} aria-label="search" 
+          href ={`http://127.0.0.1:8000/search/?${field}=${input}`}
+          style={{ backgroundColor: '#DAA844' }}
+          padding="500px"
+        >
+          <SearchIcon style={{ color: 'white' }}/>
         </IconButton> 
-
+  
     </Paper>
+    </>
   )
 }
 

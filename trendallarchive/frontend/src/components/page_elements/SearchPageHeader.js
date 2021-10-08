@@ -28,9 +28,8 @@ const SearchPageHeader = () => {
         <Img/>
       </Link>
       <NavBar>
-        <NavLi><Link to="/"><Icon name={BackIcon}/></Link></NavLi> 
-        <NavLi>About</NavLi>
-        <NavLi>Contact</NavLi>
+        <NavLi><Link to= "/about/" style={{ textDecoration: 'none', color: 'white' }}>About</Link></NavLi>
+        <NavLi><Link to = "/contact/" style={{ textDecoration: 'none', color: 'white' }}>Contact </Link></NavLi>
         <NavLi><Icon/></NavLi> 
       </NavBar>
     </SearchHeader>

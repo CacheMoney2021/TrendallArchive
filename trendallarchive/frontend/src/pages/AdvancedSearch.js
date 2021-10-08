@@ -93,12 +93,14 @@ const FieldSearch = (props) => {
         onChange={props.onChange}
         fullWidth  
       />
-      
+      {/* 
       <IconButton type="submit" className={classes.iconButton} onClick={()=>{ alert('alert'); }}>
         <Icon name={InfoIcon}/>
       </IconButton>
+      */}
       </Paper>
       </div>
+      
   )
 }
 
@@ -186,7 +188,7 @@ export default class AdvancedSearch extends React.Component {
           <SearchPageHeader/>
             <PageContainer>
               <AdvancedForm/>
-              <TermsDictionary/>
+              {/*<TermsDictionary/>*/}
             </PageContainer>
           <Footer/>
         </div>
