@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+//this page contains components for 'About' page
+import React from 'react';
 import SearchPageHeader from "../components/page_elements/SearchPageHeader";
-import { PageContainer, Footer } from "../components/page_elements/Div.elements";
-import styled from 'styled-components';
+import { Footer } from "../components/page_elements/Div.elements";
 import AboutInfo from "../components/AboutInfo";
 
 //class to render all components for the About page

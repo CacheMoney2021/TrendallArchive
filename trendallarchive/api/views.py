@@ -1,10 +1,8 @@
-from django.shortcuts import render
-
+#this file contains API views to access the ORM database
 from django.http.response import HttpResponse
 from .serializers import VaseSerializer, PlateSerializer
 from .models import Vase, Plate
 from rest_framework import generics
-
 
 #API view to retreive all attributes of a vase with given a vaseRef
 class GetTheVase(generics.ListAPIView):
@@ -20,7 +18,7 @@ class GetTheVase(generics.ListAPIView):
             print(e)
             pass
 
-# #API view for Basic Search and Advanced Search, takes in a vase paramter (zero, 1 or many) passed through URL.
+#API view for Basic Search and Advanced Search, takes in a vase paramter (zero, 1 or many) passed through URL.
 class FilterVases(generics.ListAPIView):
     serializer_class = VaseSerializer 
     def get_queryset(self):
@@ -92,26 +90,13 @@ class GetPlate(generics.ListAPIView):
     serializer_class = PlateSerializer 
     def get_queryset(self):
         queryset = Plate.objects.all()
-        vase = self.request.query_params.get('vase')
+        vase = self.request.query_params.get('vase')#get vaseRef parameter from URL
         if vase is not None:
             try:
-                queryset = queryset.filter(vase=vase)
+                queryset = queryset.filter(vase=vase)#if vaseRef matches vaseRef in database, return the data array
             except Exception as e:
                 print(e)
         return queryset
-    # def getBlobs():
-    #     account_url = "https://trendallplates.blob.core.windows.net/"
-    #     service_client = BlobServiceClient(
-    #     account_url=account_url
-    #     )
-    #     blob_name = "P-1-1.png"
-    #     container_name= "images"
-    #     blob_url = f"{account_url}/{container_name}/{blob_name}"
-    #     blob_client = BlobClient.from_blob_url(
-    #         blob_url=blob_url
-    #     )
-    #     blob_download = blob_client.download_blob()
-    #     return blob_url
 
 def main(request):
     return HttpResponse("Hello")
