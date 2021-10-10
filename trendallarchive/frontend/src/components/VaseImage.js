@@ -1,4 +1,3 @@
-
 // Component to make the API call to retrieve the plateRef's for a given vaseRef,
 // then use the plateRef combined with the blob storage URL to retrieve the image/s
 // and print the image/s to the viewvase page in an image carouselimport React from "react";

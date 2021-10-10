@@ -1,3 +1,4 @@
+//component containing 'Contact' information
 import React from 'react';
 import styled from 'styled-components';
 import GoldBtn from './buttons/GoldBtn';
