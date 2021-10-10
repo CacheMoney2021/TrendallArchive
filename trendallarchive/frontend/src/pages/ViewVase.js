@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+//page to view the vase details and images.
+//these details are seperated into components and are called on this page. 
+import React from 'react';
 import Vase from '../components/Vase';
 import SearchPageHeader from "../components/page_elements/SearchPageHeader";
 import { PageContainer, Footer } from "../components/page_elements/Div.elements";
 import styled from 'styled-components';
-import VaseGallery from '../components/VaseGallery';
 import VaseImage from '../components/VaseImage';
-import { makeStyles } from '@material-ui/core/styles';
-import { useHistory } from 'react-router-dom';
 import BackIcon from '../components/images/backarrow_white.png';
 import { Link } from 'react-router-dom';
 

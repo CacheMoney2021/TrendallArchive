@@ -1,8 +1,8 @@
+//This component takes the vaseRef parameter from the URL, sends it in the API call
+//consume the JSON response and prints the data for this particular vase
 import React,{useEffect,useState} from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-
-
 
 const FormDiv = styled.div`
     width: 100%;
@@ -35,7 +35,7 @@ const Vase=()=>{
         axios.get(`http://127.0.0.1:8000/api/getthevase/?vaseRef=${vaseRef}`)//get the selected vase using the vaseRef passed through the URL
             .then(res=>{
                 console.log({vaseRef})
-                console.log('Response from main API: ',res) //printing the response to the console
+                console.log('Response from main API: ',res) //printing the response to the console for debugging
                 let vaseData=res.data[0]; //add data to vaseData, then assign into each variable
                 setData({VaseRef:vaseData.vaseRef,Fabric:vaseData.fabric,Technique:vaseData.technique,Subject:vaseData.subject, Height:vaseData.height, Diameter:vaseData.diameter, ArtistName:vaseData.artistName,Collection:vaseData.collectionName,Shape:vaseData.shapeName,Provenance:vaseData.provenanceName, Publications:vaseData.publications}) //vaseData is never assigned so these variables areundefined
             })
@@ -46,12 +46,11 @@ const Vase=()=>{
 
 //return and display the vase information that was retrieved in the function
     return(
-        <>
-        
-              
+        <>    
         <FormDiv>
             <div className = "vaseDiv">
                 <h2>{Data.VaseRef}, {Data.Fabric}, {Data.Collection}</h2>
+            <tbody>
             <table>
                 <tr>
                     <th>Vase Number</th> <td>{Data.VaseRef}</td> 
@@ -82,6 +81,7 @@ const Vase=()=>{
                     <th>Diameter</th><td>{Data.Diameter} cm</td>
                 </tr>
             </table>
+            </tbody>
             </div>
         </FormDiv>
         </>
